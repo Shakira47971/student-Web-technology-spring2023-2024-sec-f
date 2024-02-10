@@ -1,24 +1,47 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>FORM</title>
 </head>
 <body>
-        <form method="" action="" enctype="">
-            <table>
-
-                <tr> <td>
-            <fieldset>
+    <form method="" action="" enctype="">
+        <fieldset>
             <legend><b>Date of Birth</b></legend>
-            <div style="padding:3x;"> dd<input type="text" name="dd" value="" /> <br>
-                <div style="padding:3x;"> mm<input type="text" name="mm" value="" />
-                    <div style="padding:3x;">  yyyy<input type="text" name="yyyy" value="" />
-                    </div>
-            <br>
-             <div style="padding:3x;"><input type="submit" name="submit" value="Submit" /></div>
-            </td>
+            <table>
+                <tr>
+                    <td>
+                        <div style="padding:3px; display: inline-block; vertical-align: top;">
+                            dd <br>
+                            <input type="text" name="dd" value="" style="width: 30px;" /> <b>/</b>
+                        </div>
+                    </td>
+                   <td>
+                        <div style="padding:3px; display: inline-block; vertical-align: top;">
+                            mm <br>
+                            <input type="text" name="mm" value="" style="width: 30px;" /> <b>/</b>
+                        </div>
+                    </td>
+                   <td>
+                        <div style="padding:3px; display: inline-block; vertical-align: top;">
+                            yyyy <br>
+                            <input type="text" name="yyyy" value="" style="width: 50px;" /> 
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div style="padding:3px;">
+                            <input type="submit" name="submit" value="Submit" />
+                        </div>
+                    </td>
                 </tr>
             </table>
         </fieldset>
-                        </form>
-                    </body>
-                    </html>
+    </form>
+</body>
+</html>
