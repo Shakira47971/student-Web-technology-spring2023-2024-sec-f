@@ -4,16 +4,16 @@
     <title>Shapes2</title>
 </head>
 <body>
-    <table border='1' cellspacing='0' width=350 height=350>
+    <table border='1' cellspacing='0' width=250 height=250>
         <tr>
-            <td width=100 height=70>
+            <td width=100 height=90>
                 <?php
-                print("Declare Array");
+                print("The array to declare");
                 ?>
             </td>
-            <td width=100 height=70>
+            <td width=100 height=90>
                 <?php
-                print(" print the shapes");
+                print(" Shapes to print");
                 ?>
             </td>
         </tr>
@@ -33,14 +33,14 @@
                 </table>
             </td>
             <td>
-                <table border='1' cellspacing='0' width=90 height=90>
+                <table border='1' cellspacing='0' width=80 height=80>
                     <tr>
                         <td>
                             <?php
                             for ($i = 3; $i >= 1; $i--) {
                                 for ($j = 1; $j <= $i; $j++) {
                                     
-                                    echo "($j) ";
+                                    echo "$j";
                                 }
                                 echo "<br>";
                             }
@@ -51,7 +51,7 @@
                             $count = 65; 
                             for ($i = 0; $i < 3; $i++) {
                                 for ($j = 0; $j <= $i; $j++) {
-                                    echo "(" . chr($count++) . ") ";
+                                    echo "" . chr($count++) . " ";
                     }
                     echo "<br>";
                             }
@@ -63,4 +63,4 @@
         </tr>
     </table>
 </body>
-</html>  write simple code
+</html>  
