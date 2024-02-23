@@ -1,6 +1,11 @@
 <html>
 <head>
     <title>Online Booking Form</title>
+    <style>
+        #customer-support {
+            display: none; 
+        }
+    </style>
 </head>
 <body>
    <form>
@@ -8,7 +13,13 @@
             <legend>Booking Management</legend>
             
 
-<body>
+
+    
+    <ul id="menu">
+        <li><a href="#">My Reservations</a></li>
+        <li><a href="#" onclick="toggleCustomerSupport()">Customer Support</a></li>
+        <li><a href="#">Account Settings</a></li>
+    </ul>
     <section id="customer-support">
         <ul>
             <li><a href="#">Live Chat</a></li>
@@ -16,15 +27,18 @@
             <li>Phone: +1-800-123-4567</li>
         </ul>
     </section>
-   
-    <ul id="menu">
-        <li><a href="#">Search Rooms</a></li>
-        <li><a href="#">My Reservations</a></li>
-        <li><a href="#">Customer Support</a></li>
-        <li><a href="#">Account Settings</a></li>
-    </ul>
     
-   <form>
+    <script>
+        function toggleCustomerSupport(event) {
+            event.preventDefault(); // Prevent default link behavior
+            var customerSupportSection = document.getElementById("customer-support");
+            if (customerSupportSection.style.display === "none" || customerSupportSection.style.display === "") {
+                customerSupportSection.style.display = "block";
+            } else {
+                customerSupportSection.style.display = "none";
+            }
+        }
+    </script>
     <table align="center" cellspacing="0">
     
         <tr>
@@ -73,10 +87,14 @@
                 </div>
             </td>
         </tr>
-        
+        <tr>
+            <td colspan="2" align="center ">
+                <div style="padding: 7px;">
+                    <button type="submit">Search room</button>
+                </div></td></tr>
        
     </table>
-   </form>
+  
     
         
         
@@ -128,4 +146,4 @@
         </table>
         </form>
     </body>
-    </html>
+</html>
