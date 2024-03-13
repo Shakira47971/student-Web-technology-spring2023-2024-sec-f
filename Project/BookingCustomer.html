@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>Online Booking Form</title>
+    
+</head>
+<body>
+   <form>
+        <fieldset style="width: 500px;">  
+            <legend>Booking Management</legend>
+            
+
+
+    
+    <ul id="menu">
+        <li><a href="#">My Reservations</a></li>
+        <li><a href="#">Customer Support</a></li>
+        <li><a href="#">Account Settings</a></li>
+    </ul>
+   
+    
+    
+    <table align="center" cellspacing="0">
+    
+        <tr>
+            <td>Guest Number</td>    
+            <td>
+                <div style="padding: 3px;">
+                    <input type="number" >
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Room Type:</td>
+            <td>
+                <div style="padding: 3px;">
+                    <select name="room-type">
+                        <option value="single">Single</option>
+                        <option value="double">Double</option>
+                        <option value="suite">Suite</option>
+                    </select>
+                </div>
+            </td> 
+        </tr>
+        <tr>
+            <td>Check-in Date:</td>
+            <td>
+                <div style="padding: 3px;">
+                  
+                    <input type="date" id="checkinDate" name="checkinDate" required>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Check-Out Date:</td>
+            <td>
+                <div style="padding: 3px;">
+                  
+                    <input type="date" id="checkoutDate" name="checkoutDate" required>
+                </div>
+            </td>
+        </tr>
+       
+        </tr>
+        <td>Price Range</td>    
+            <td>
+                <div style="padding: 3px;">
+                    <input type="number">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center ">
+                <div style="padding: 7px;">
+                    <button type="submit">Search room</button>
+                </div></td></tr>
+       
+    </table>
+  
+    
+        
+        
+                </form>
+    </body>
+</html>
