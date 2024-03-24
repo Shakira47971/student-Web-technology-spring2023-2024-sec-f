@@ -11,21 +11,24 @@ $dd = $_REQUEST['dd'];
 $mm = $_REQUEST['mm'];
 $yyyy = $_REQUEST['yyyy'];
 
-function namecheck($name) {
+function nameCheck($name){
     if ($name == "") {
         echo "Name cannot be empty";
-       
     } else {
         $words = explode(" ", $name);
-
-        if (count($words) > 2) {
-            echo "Name must contain at least two words";
-            
-        } 
+    
+        function hasAtLeastTwoWords($words) {
+            return (count($words) >= 2);
+        }
+    
+    if (!hasAtLeastTwoWords($words)) {
+        echo "Name  must contains more than Two Words";
+    }
+    else {
         return true;
     }
-}
-
+    }
+    }
 function username($username) {
     if ($username == "") {
         echo "Username cannot be empty";

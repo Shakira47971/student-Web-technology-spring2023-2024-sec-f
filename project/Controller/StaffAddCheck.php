@@ -79,21 +79,21 @@ function CheckId($staffId) {
     
 }
 function CheckContact($Contact) {
-    // Check if contact number is 13 digits long (including the '+')
+   
     if (strlen($Contact) !== 14) {
         echo "Contact must be 14 digits long";
         return false;
     }
     
-    // Check if contact number starts with one of the specified prefixes
+    
     if (!in_array(substr($Contact, 0, 6), array("+88017", "+88019", "+88018", "+88015", "+88016", "+88013"))) {
         echo "Contact must start with +88017, +88019, +88018, +88015, +88016, or +88013";
         return false;
     }
 
-    // Check if the 7th digit is one of 7, 9, 8, 6, 5, or 3
     
-    // If all conditions are satisfied, return true
+    
+    
     return true;
 }
 
