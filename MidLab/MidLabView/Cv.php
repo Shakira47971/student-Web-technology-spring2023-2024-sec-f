@@ -9,37 +9,17 @@
 
 <body>
     <table align="center" width="70%" height="100%">
-        <tr>
-            <th>
-                <h2>CV</h2>
-            </th>
-        </tr>
-        <tr>
-            <th>
-                <hr>
-            </th>
-        </tr>
-        <tr>
-
-            <td align="right"><img src="fp.JPEG" alt="Picture" width="200" height="250"></td>
-        </tr>
+        
+        
+        
         <tr>
             <td>
-               <h2 align="right"> Sayeda Shakira Akter</h2> 
+              <h3> <u>Personal Information</u><h3>
             </td>
         </tr>
-        <table align="center" width="70%">
         <tr>
-       <td><h2><U>Objective</U></h2></td>
-        </tr>
-    <tr>
-        <td>I am looking for the environment where i can use my knowledge.</td>
-    </tr> 
-       
-        <tr>
-            <td>
-                <h2><u>Personal Information</u></h2>
-            </td>
+            <td><b> Name:</b>Sayeda Shakira Akter
+                 </td>
         </tr>
         <tr>
             <td><b>Father's Name:</b>Sayed Golam Mohammad
@@ -88,78 +68,22 @@
         
         <tr>
             <td>
-                <h2><u>Educational Qualification</u></h3>
+              <h3>  <u>Educational </u><h3>
             </td>
         </tr>
-        </table>
-        <table align="center" border="3" width="70%">
-            <th>Qualification</th>
-            <th>Year</th>
-            <th>Institution</th>
-            <th>Board/University</th>
-            <th>GPA</th>
+       
             <tr>
-                <td>SSC</td>
-                <td>2018</td>
-                <td>Pallabi Majedul Islam Model High School</td>
-                <td>Dhaka</td>
-                <td>5.00(out of 5.00)</td>
-            </tr>
-            <tr>
-                <td>HSC</td>
-                <td>2020</td>
-                <td>Mirpur Cantonment Public School And College</th>
-                <td>Dhaka</td>
-                <td>5.00(out of 5.00)</td>
-            </tr>
-            <tr>
-                <td>BSc. in CSE</td>
-                <td>2024(running)</td>
-                <td>American International University-Bangladesh</td>
+                <td><b>Degree:</b>BSc. in CSE</td>
+</tr>
+                <tr>
+                <td><b>Inistitution:</b>American International University-Bangladesh</td></tr>
                 <td></td>
-                <td>3.93(out of 4.00)(current)</td>
+               <tr> <td><b>CGPA:</b>3.93(out of 4.00)(current)</td>
             </tr>
         
             
-        </table>
-        <table align="center" width="70%">
-            <td>
-                <h2><U>Projects Experiance</U></h2>
-            </td>
-            <tr>
-                <td> Hostal Rent Management System Project in C++ (2022)<br>
-                        Tour And Travel Management System  Project in Java (2022)<br>
-                        Doctor Appointment System Project in SQL (2023)<br>
-                        Parlour Management System Project in C# (2023)
-                    </td>
-            </tr>
-        </table>
-        <table align="center" width="70%">
-            <td>
-                <h2><U>Personal Qualities</U></h2>  
-            </td>
-    
-            <tr>
-                <td>Good Speaker,Fluent in English,Excellent Communication Skill,Hard Worker,Good at Team Work as well as individual Woker, Honest and Punctual.
-                </td>
-            </tr>
-            <tr>
-                <td><h2><U>Career Objective</U></h2>
-                </td>
-               </tr>
-               <tr>
-                <td>I want to use my skills in making websites and designing graphics to help teams create awesome digital stuff. I love making designs that people enjoy using, and I'm excited to learn and grow while working on cool projects.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h2><U>Hobbies<U></h2>
-                </td>
-            </tr>
-            <tr>
-                <td>Travelling
-                    </td>
-            </tr>
+       
+        
         </table>
       
             </body>
