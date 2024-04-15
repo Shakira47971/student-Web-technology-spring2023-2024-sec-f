@@ -7,19 +7,20 @@ if(!isset($_COOKIE['flag'])){
 <head>
     
     <title>Facility Management</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-        <h3><u>Package Details</u></h3>
+        <h3 id="b1"><u>Package Details</u></h3>
         <form method="get" action="../Controller/PackageAddCheck.php">
-        <table align ="center">
+        <table align ="center" class="c1">
 
-                                  <tr>
+                                  <tr class="c2">
                                     <td>Package Id:</td>
                                     <td><input type="Name" id="packageId" name="packageId"></td>
                                     <td>Enter at least 3 digit unique Id</td>
                                 </tr>
-                                <tr>
+                                <tr class="c2">
                                     <td>Package Name:</td>
                                     
                                     <td>
@@ -29,7 +30,7 @@ if(!isset($_COOKIE['flag'])){
                                           </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="c2">
                                     <td>Package Description:</td>
                                     <td>
                                     <div style="padding: 3px;">
@@ -38,7 +39,7 @@ if(!isset($_COOKIE['flag'])){
                                     </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="c2">
                                     <td>Package Catagory:</td>
                                     <td>
                                     <div style="padding: 3px;">
@@ -58,7 +59,7 @@ if(!isset($_COOKIE['flag'])){
                                       </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="c2">
                                     <td>Price:</td>
                                     <td>
                                     <div style="padding: 3px;">
@@ -68,18 +69,21 @@ if(!isset($_COOKIE['flag'])){
                                      
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td colspan="2"style="text-align: center;" >
-                                        
+                                </table>
+                                
+                                
+                              
                            
-                            <div style="padding: 3px;">
-                            <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="PackageView.php">View</a>
-                               <button type="submit">Add</button>
+                            <div style="padding: 5px;">
+                           <b> <a id="b5" href="PackageView.php">View</a></b>
+                           <tr >
+                                    <td colspan="2"style="text-align: center;" >
+                                    <b> <button type="submit" id="b7">Add</button></b>     
                                
-                            <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="FacilityView.php">Back</a></div>
-                        </td>
+                           <b> <a id="b5" href="FacilityView.php">Back</a></div></b>
+                       
+                           </td></tr> 
 
-</table>
         </form>
 
 

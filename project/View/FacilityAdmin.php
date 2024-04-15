@@ -7,19 +7,20 @@ if(!isset($_COOKIE['flag'])){
 <head>
     
     <title>Facility Management</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-        <h3><u>Facility Details</u></h3>
+        <h3 id="b1"><u>Facility Details</u></h3>
         <form method="get" action=" ../Controller/FacilityAddCheck.php">
-        <table align ="center">
+        <table align ="center" class="c1">
 
-<tr>
+<tr class="c2">
   <td>Facility Id:</td>
   <td><input type="number"  name="facilityId"></td>
   <td>Enter at least 3 digit unique Id</td>
 </tr>
-<tr>
+<tr class="c2">
   <td>Facility Name:</td>
   
   <td>
@@ -29,7 +30,7 @@ if(!isset($_COOKIE['flag'])){
         </td>
   <td>Enter unique name contains at least 2 characters</td> 
 </tr>
-<tr>
+<tr class="c2">
   <td>Facility Description:</td>
   <td>
   <div style="padding: 3px;">
@@ -38,7 +39,7 @@ if(!isset($_COOKIE['flag'])){
   <td>Enter unique   description in more than 10 characters</td> 
   </td>
 </tr>
-<tr>
+<tr class="c2">
   <td>Facility Catagory:</td>
   <td>
   <div style="padding: 3px;">
@@ -54,19 +55,19 @@ if(!isset($_COOKIE['flag'])){
     </div>
   </td>
 </tr>
-
+</table>
   
-            <tr>
+            <tr class="c2">
             <td colspan="2"  style="text-align: center;">
             
                             <div style="padding: 3px;">
-                            <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="FacilityView.php">View</a>
-                               <button type="submit">Add</button>
-                               <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="FacilityFile.php">Picture</a>
-                            <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="StaffView.php">Back</a></div>
+                           <b> <a id="b5" href="FacilityView.php">View</a>
+                               <button type="submit"id="b7">Add</button>
+                               <a id="b5"href="FacilityFile.php">Picture</a>
+                            <a id="b5" href="StaffView.php">Back</a></div></b>
                         </td>
 </tr>
-</table>
+
 
         </form>
 

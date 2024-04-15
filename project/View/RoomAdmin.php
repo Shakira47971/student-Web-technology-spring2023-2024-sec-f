@@ -8,14 +8,15 @@ if(!isset($_COOKIE['flag'])){
 
 <head>
     <title>Room Management Form</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body>
-    <div style="text-align: center;">
-    <h3><U>Room Details</U></h3>
+<body id="b8">
+    
+    <h3 id="b1"><U>Room Details</U></h3>
         <form method="post" action="../Controller/RoomAddCheck.php" enctype="">
             
-                <table align="center" cellspacing="0" >
-                    <tr>
+                <table align="center"class="c1" >
+                    <tr class="c2">
                         <td>Room ID:</td>
                         <td>
                             <div style="padding: 3px;">
@@ -26,7 +27,7 @@ if(!isset($_COOKIE['flag'])){
                     </tr> 
                    
                     
-                    <tr>
+                    <tr class="c2">
     <td>Room Type:</td>
     <td>
         <div style="padding: 3px;">
@@ -40,7 +41,7 @@ if(!isset($_COOKIE['flag'])){
     </td>
 </tr>
 
-                    <tr>
+                    <tr class="c2">
                         <td>Room Number:</td>
                         <td>
                             <div style="padding: 3px;">
@@ -49,7 +50,7 @@ if(!isset($_COOKIE['flag'])){
                         </td>
                         <td>Enter at least 3  digit unique number</td>
                     </tr>
-                    <tr>
+                    <tr class="c2">
                         <td>Capacity:</td>    
                         <td>
                             <div style="padding: 3px;">
@@ -58,7 +59,7 @@ if(!isset($_COOKIE['flag'])){
                         </td>
                         <td>Enter  valid capacity</td>
                     </tr>
-                    <tr>
+                    <tr class="c2">
                         <td>Price Per Night:</td>
                         <td>
                             <div style="padding: 3px;">
@@ -67,20 +68,20 @@ if(!isset($_COOKIE['flag'])){
                         </td>
                         <td>Enter  valid price more than 2000</td>
                     </tr>
-                        
-                    <tr>
+                    </table>    
+                    <tr >
                         <td colspan="2" style="text-align: center;">
-                        <div style="padding: 3px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="roomView.php">View</a>
+                        <div style="padding: 3px;"><b> <a id="b5" href="roomView.php">View</a></b>
                        
                      
-                               <button type="submit">Add</button>
-                               <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="roomFile.php">Picture</a>
+                              <b> <button type="submit"id="b7">Add</button></b>
+                              <b> <a id="b5" href="roomFile.php">Picture</a></b>
                               
-                                <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="CustomerView.php">Back</a>
+                               <b> <a id="b5"href="CustomerView.php">Back</a></b>
                             </div>
                         </td>
                     </tr>
-                </table> 
+                
             
         </form>
     </div>

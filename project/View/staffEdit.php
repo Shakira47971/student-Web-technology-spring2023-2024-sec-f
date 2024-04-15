@@ -21,15 +21,17 @@ $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : '';
 <html>
 <head>
     <title>Edit Room</title>
-</head>
-<body style="text-align: center;">
+    <link rel="stylesheet" href="adminStyle.css"/>
 
-    <h3><u>Edit Staff Details</u></h3>
+</head>
+<body id="b8">
+
+    <h3 id="b1"><u>Edit Staff Details</u></h3>
     <br>
     <form method="post" action="../Controller/staffEditCheck.php">
-        <table align="center" cellspacing="0">
+        <table align="center" class="c4">
         <?php for($i=0; $i<count($StaffEdit); $i++){?>
-            <tr>
+            <tr class="c3">
             <td> Staff Id:</td>
                 <td>
                     <div style="padding: 3px;"><input type="text" name="staffId" value="<?php echo $StaffEdit[$i]['staffId']; ?>"/>
@@ -37,7 +39,7 @@ $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : '';
                     </div>
                 </td>
             </tr> 
-            <tr>
+            <tr class="c3">
                 <td> Staff Name:</td>
                 <td>
                     <div style="padding: 3px;"><input type="text" name="staffName" value="<?php echo $StaffEdit[$i]['staffName']; ?>"/>
@@ -45,7 +47,7 @@ $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : '';
                     </div>
                 </td>
             </tr> 
-            <tr>
+            <tr class="c3">
                 <td>Email:</td>
                 <td>
                     <div style="padding: 3px;"><input type="text" name="email"value="<?php echo $StaffEdit[$i]['email']; ?>"/>
@@ -53,7 +55,7 @@ $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : '';
                     </div>
                 </td>
             </tr> 
-            <tr>
+            <tr class="c3">
                 <td>Department:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -67,7 +69,7 @@ $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : '';
                     </div>
                 </td> 
             </tr>
-            <tr>
+            <tr class="c3">
                 <td>Contact:</td>    
                 <td>
                     <div style="padding: 3px;">
@@ -75,7 +77,7 @@ $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : '';
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c3">
                 <td>Salary:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -83,7 +85,7 @@ $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : '';
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c3">
                 <td>Account Status:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -95,16 +97,19 @@ $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : '';
                     </div>
                 </td>
             </tr>
-    <tr>
+    <tr class="c3">
         <td colspan="2" style="text-align: center;">
             <div style="padding: 5px;">
-                <button>Update</button>
-                 <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="StaffView.php">Back</a>  
-            </div>
+                <button id="b7">Update</button>
+                </div>
         </td>
     </tr>
+                </table> 
+
+                 <a id="b5" href="StaffView.php">Back</a>  
+            
     <?php } ?>
-</table> 
+
 
     
 </form>

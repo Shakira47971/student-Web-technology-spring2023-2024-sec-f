@@ -14,16 +14,17 @@
 <html>
 <head>
     <title>Online Booking Form</title>
+    <link rel="stylesheet" href="bookingStyle.css"/>
 </head>
-<body style ="text-align: center;">
+<body  id="b8" >
     <form method="post" action="BookingCustomerView.php" enctype="">
    
 
-         <h3><U>Search Room For Booking</U></h3>
+         <h3 id="b1"><U>Search Room For Booking</U></h3>
 
 
-<table border=1  cellspacing=0 align="center">
-                <tr>
+         <table  border="1" cellspacing="0" align="center" class="c1">
+                   <tr class="c2">
                     <td>Guest Number:</td>    
                     <td>
                         <div style="padding: 3px;">
@@ -32,7 +33,7 @@
                     </td>
                    
                 </tr>
-                <tr>
+                <tr class="c2">
                     <td>Room Type:</td>
                     <td>
                         <div style="padding: 3px;">
@@ -45,7 +46,7 @@
                         </div>
                     </td> 
                 </tr>
-                <tr>
+                <tr class="c2">
                     <td>Price Range:</td>    
                     <td>
                         <div style="padding: 3px;">
@@ -54,10 +55,10 @@
                     </td>
                    
                 </tr>
-                <tr>
+                <tr class="c2">
                     <td colspan="2" align="center">
                         <div style="padding: 7px;">
-                            <button type="submit">Search Rooms</button>
+                            <button type="submit" id="b3">Search Rooms</button>
                         </div>
                     </td> </tr>
                     
@@ -66,7 +67,7 @@
             </table>
             <div style="padding: 7px;"> 
           
-            <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="login.php">Back</a></div>
+            <a id="b4" href="login.php">Back</a></div>
     </form>
 </body>
 </html>

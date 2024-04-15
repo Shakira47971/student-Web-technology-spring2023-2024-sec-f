@@ -22,23 +22,24 @@
 <html>
 <head>
     <title>Edit Room</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-    <h3><U>Edit Facilities</U></h3>
+    <h3 id="b1"><U>Edit Facilities</U></h3>
     <br>
     <form method="post" action="../Controller/FacilityEditCheck.php">
         
-            <body style="text-align: center;">
+            <body id="b8">
 
             <?php for($i=0; $i<count($FacilityEdit); $i++){?>  
-        <table align ="center">
+        <table align ="center" class="c4">
 
-<tr>
+<tr class="c3">
   <td>Facility Id:</td>
   <td><input type="number"  name="facilityId" value="<?php echo $FacilityEdit[$i]['facilityId']; ?>"/></td>
 </tr>
-<tr>
+<tr class="c3">
   <td>Facility Name:</td>
   
   <td>
@@ -47,7 +48,7 @@
         </div>
   </td>
 </tr>
-<tr>
+<tr class="c3">
   <td>Facility Description:</td>
   <td>
   <div style="padding: 3px;">
@@ -55,7 +56,7 @@
   </div>
   </td>
 </tr>
-<tr>
+<tr class="c3">
   <td>Facility Catagory:</td>
   <td>
   <div style="padding: 3px;">
@@ -71,20 +72,22 @@
   </td>
 </tr>
 
-  
+
             
                        
-<tr>
+<tr class="c3">
 <td colspan="2" style="text-align: center;">
                 
                     <div style="padding: 15px;" >
-                        <button type="submit" name="update" value="update">Update</button>
-                        <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="FacilityView.php">Back</a>
-                    </div>
+                        <button type="submit" id="b7" name="update" value="update">Update</button>
+                        </div>
 </td>
 </tr>
-<?php } ?>
 </table>
+                        <a id="b5" href="FacilityView.php">Back</a>
+                    
+<?php } ?>
+
                 
 
     </form>

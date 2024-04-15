@@ -20,15 +20,16 @@ $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : '';
 <html>
 <head>
     <title>Edit Room</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-    <h3><U>Edit Room</U></h3>
+    <h3 id="b1"><U>Edit Room</U></h3>
     <br>
     <form method="post" action="../Controller/roomEditCheck.php">
-        <table align="center" cellspacing="0">
+        <table align="center"  class="c4">
         <?php for($i=0; $i<count($RoomEdit); $i++){?>
-            <tr>
+            <tr class="c3">
                 <td>Room Id:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -37,7 +38,7 @@ $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : '';
                 </td>
             </tr>
            
-              <tr>
+              <tr class="c3">
                 <td>Room Type:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -49,7 +50,7 @@ $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : '';
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c3">
                 <td>Room Number:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -57,7 +58,7 @@ $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : '';
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c3">
                 <td>Capacity:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -65,7 +66,7 @@ $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : '';
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c3">
                 <td>Price:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -73,17 +74,17 @@ $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : '';
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c3">
                 <td colspan="2" style="text-align: center;">
                     <div style="padding: 15px;">
-                        <button type="submit" name="update" value="update">Update</button>
+                        <b><button type="submit" name="update" value="update">Update</button><b>
                     </div>
                 </td>
             </tr>
-            <?php } ?>
+            
         </table>
-        <div style="padding: 7px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="RoomView.php">Back</a></div>
-       
+      <b> <a id="b5" href="RoomView.php">Back</a></b>
+      <?php } ?>
     </form>
 
 </body>

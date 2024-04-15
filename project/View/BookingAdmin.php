@@ -11,36 +11,37 @@ $guest=SearchCustomer($GuestId);
 <head>
     
     <title>Booking Management</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style ="text-align: center;">
+<body id="b8">
     <form >
    
 
-         <h3><U>Customer Details</U></h3>
+         <h3 id="b1"><U>Customer Details</U></h3>
     
         
-        <table align="center" cellspacing="0">
+        <table align="center"  class="c1">
            
-            <tr>
+            <tr class="c2">
                 <td>Guest Id:</td>
                 <td>
                     <div style="padding: 3px;">
                         <input type="text"name="guestId" >
                     </div>
                 </td>
-                <tr>
+                <tr class="c2">
                 <td colspan="2" align ="center"> 
            <div style="padding: 3px;"> 
                 
                 
            <button type="submit">Search </button>
-           <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="CustomerView.php">View</a>
+           <a id="b4" href="CustomerView.php">View</a>
                
             </tr>
        
         </table>
-                <table border=1  cellspacing=0 align="center">
-            <tr>
+                <table border=1  cellspacing=0 align="center" class="c4">
+            <tr class="c3">
                 <td><b>Guest Id</b></td>
                 <td><b>Guest Number</b></td>
                 <td><b>room Type</b></td>

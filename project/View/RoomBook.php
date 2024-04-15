@@ -17,14 +17,15 @@ $room = getRoom($roomNumber);
 <html>
 <head>
     <title> View Room</title>
+    <link rel="stylesheet" href="bookingStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-    <h3><U>Booking room Details</U></h3>
+    <h3 id="b5"><U>Booking room Details</U></h3>
     <form method="post" action="FacilityCustomer.php" enctype="">
 
-<table border=1  cellspacing=0 align="center">
-            <tr>
+<table border="1"  cellspacing="0" align="center"  class="c4">
+            <tr  class="c3">
                
                 
                 <td>room Number</td>
@@ -50,8 +51,8 @@ $room = getRoom($roomNumber);
               
             <?php } ?>
         </table>
-        <div style="padding: 7px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="FacilityCustomer.php">Next</a>
-         <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="BookingCustomer.php">Back</a></div>
+        <div style="padding: 7px;"> <a id="b4" href="FacilityCustomer.php">Next</a>
+         <a id="b4" href="BookingCustomer.php">Back</a></div>
         </body>
         </html>
         

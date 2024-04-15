@@ -22,16 +22,17 @@ $GuestId = isset($_GET['guestId']) ? $_GET['guestId'] : '';
 <html>
 <head>
     <title>Edit Customer Details</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-    <h3><U>Edit Customer Details</U></h3>
+    <h3 id="b1"><U>Edit Customer Details</U></h3>
     <br>
     <form method="post" action="../Controller/CustomerEditCheck.php">
 
-        <table align="center" cellspacing="0">
+        <table align="center"  class="c4">
         <?php for($i=0; $i<count($GuestEdit); $i++){?>
-        <tr>
+        <tr class="c3">
                 <td>Guest Id:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -40,7 +41,7 @@ $GuestId = isset($_GET['guestId']) ? $_GET['guestId'] : '';
                 </td>
             </tr> 
             
-            <tr>
+            <tr class="c3">
     <td>Guest Number</td>    
     <td>
         <div style="padding: 3px;">
@@ -49,7 +50,7 @@ $GuestId = isset($_GET['guestId']) ? $_GET['guestId'] : '';
     </td>
 </tr>
 
-            <tr>
+            <tr class="c3">
                 <td>Room Type:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -62,7 +63,7 @@ $GuestId = isset($_GET['guestId']) ? $_GET['guestId'] : '';
                 </td> 
             </tr>
            
-            <tr>
+            <tr class="c3">
                 <td>Check-in Date:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -71,7 +72,7 @@ $GuestId = isset($_GET['guestId']) ? $_GET['guestId'] : '';
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c3">
                 <td>Check-Out Date:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -80,7 +81,7 @@ $GuestId = isset($_GET['guestId']) ? $_GET['guestId'] : '';
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c3">
                 <td>Price Range:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -90,22 +91,24 @@ $GuestId = isset($_GET['guestId']) ? $_GET['guestId'] : '';
                 </td>
             </tr>
              
-
-       
-   
-    <tr>
+            <tr class="c3">
         <td colspan="2" style="text-align: center;">
+        <div style="padding: 7px;">
+        <button  >Update</button></div>
+    </td></tr>
+            </table>
+   
+   
         
-        <div style="padding: 7px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="CustomerView.php">Back</a>
+         <a id="b5"  href="CustomerView.php">Back</a>
           
                 
-                <button>Update</button>
-              <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="RoomAdmin.php">Next</a>
-              </div>    
-        </td>
-    </tr>
+               
+              <a id="b5" href="RoomAdmin.php">Next</a>
+              
+        
     <?php } ?>
-</table> 
+ 
 
     
     

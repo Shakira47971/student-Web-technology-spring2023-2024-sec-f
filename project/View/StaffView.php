@@ -17,14 +17,15 @@ $_SESSION['staff'] = $staff;
 <html>
 <head>
     <title> View Room</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-    <h3><U>View  Staff Details</U></h3>
+    <h3 id="b1"><U>View  Staff Details</U></h3>
 
 
-<table border=1  cellspacing=0 align="center">
-            <tr>
+<table border=1  cellspacing=0 align="center" class="c4">
+            <tr class="c3">
                 <td>Staff Id</td>
                 <td>Staff Name</td>
                 <td>Email</td>
@@ -45,14 +46,14 @@ $_SESSION['staff'] = $staff;
                 <td><?php echo $staff[$i]['salary']; ?></td>
                 <td><?php echo $staff[$i]['accountStatus']; ?></td>
                 
-               <td> <a href="staffEdit.php?staffId=<?=$staff[$i]['staffId']?>"> Edit </a></td> 
-               <td> <a href="staffDelete.php?staffId=<?=$staff[$i]['staffId']?>"> Delete </a></td> 
+               <td> <a id="b5" href="staffEdit.php?staffId=<?=$staff[$i]['staffId']?>"> Edit </a></td> 
+               <td> <a  id="b5"href="staffDelete.php?staffId=<?=$staff[$i]['staffId']?>"> Delete </a></td> 
                
             </tr>
             <?php } ?>
         </table>
-        <div style="padding: 7px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="StaffAdmin.php">Back</a>
-        <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="StaffSearch.php">Next</a></div>
+        <div style="padding: 7px;"> <a id="b5" href="StaffAdmin.php">Back</a>
+        <a id="b5" href="StaffSearch.php">Next</a></div>
         </body>
         </html>
         

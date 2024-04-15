@@ -19,22 +19,23 @@ $room = getRoom($roomNumber);
 <html>
 <head>
     <title>Online Booking Form</title>
+    <link rel="stylesheet" href="bookingStyle.css"/>
 </head>
-<body style ="text-align: center;">
+<body id="b8">
     <form method="post" action="../Controller/BookingCustomerCheck.php" enctype="">
    
 
-         <h3><U>Online Booking</U></h3>
+         <h3 id="b2"><U>Online Booking</U></h3>
 
 
-<table border=1  cellspacing=0 align="center">
+<table border="1"  cellspacing="0" align="center" class="c1">
        
 
 <?php for($i=0; $i<count($room); $i++){?>
 
             
             
-            <tr>
+            <tr class="c2">
             
                     <td>Guest Id:</td>    
                     <td>
@@ -44,7 +45,7 @@ $room = getRoom($roomNumber);
                     </td>
                     <td>Enter at least 5 digit Id</td>
                 </tr>
-                <tr>
+                <tr class="c2">
                     <td>Room Number:</td>    
                     <td>
                         <div style="padding: 3px;">
@@ -53,7 +54,7 @@ $room = getRoom($roomNumber);
                     </td>
                    
                 </tr>
-                <tr>
+                <tr class="c2">
                     <td>Guest Number:</td>    
                     <td>
                         <div style="padding: 3px;">
@@ -62,7 +63,7 @@ $room = getRoom($roomNumber);
                     </td>
                    
                 </tr>
-                <tr>
+                <tr class="c2">
                 <td>Room Type:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -75,7 +76,7 @@ $room = getRoom($roomNumber);
                 </td>
             </tr>
                 
-                <tr>
+                <tr class="c2">
                     <td>Check-in Date:</td>
                     <td>
                         <div style="padding: 3px;">
@@ -84,7 +85,7 @@ $room = getRoom($roomNumber);
                     </td>
                     <td>Enter at valid date for check in</td>
                 </tr>
-                <tr>
+                <tr class="c2">
                     <td>Check-Out Date:</td>
                     <td>
                         <div style="padding: 3px;">
@@ -93,7 +94,7 @@ $room = getRoom($roomNumber);
                     </td>
                     <td>Enter at valid date for check out</td>
                 </tr>
-                <tr>
+                <tr class="c2">
                     <td>Price Range:</td>    
                     <td>
                         <div style="padding: 3px;">
@@ -102,10 +103,10 @@ $room = getRoom($roomNumber);
                     </td>
                   
                 </tr>
-                <tr>
+                <tr class="c2">
                     <td colspan="2" align="center">
                         <div style="padding: 7px;">
-                            <button type="submit">Book Rooms</button>
+                            <button type="submit" id="b3">Book Rooms</button>
                         </div>
                     </td> </tr>
                     
@@ -113,7 +114,7 @@ $room = getRoom($roomNumber);
                 
             </table>
             <div style="padding: 7px;"> 
-            <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="BookingCustomer.php">Back</a></div>
+            <a id="b4" href="BookingCustomer.php">Back</a></div>
     </form>
 </body>
 </html>

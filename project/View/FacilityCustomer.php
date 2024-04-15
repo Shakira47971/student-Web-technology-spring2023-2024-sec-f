@@ -8,17 +8,18 @@ if(!isset($_COOKIE['flag'])){
 <html>
 <head>
     <title>Facilities Form</title>
+    <link rel="stylesheet" href="bookingStyle.css"/>
 </head>
-<body>
+<body id="b8">
 <table align="center"  cellspacing="0" >
     <tr>
         <td>
-    <h2>Select Facilities</h2>
+    <h2 id="b5">Select Facilities</h2>
     <form method="post" action="../View/SelectedFacilities.php">
              
  
         <section id="facilities">
-            <ul>
+            <ul class="c4">
                 <li><input type="checkbox"  name="facilities[]" value="Swimming Pool">
                 <label for="swimming_pool">Swimming Pool</label></li>
                 <li><input type="checkbox"  name="facilities[]" value="Gym">
@@ -39,9 +40,9 @@ if(!isset($_COOKIE['flag'])){
                 <label for="parking_area">Parking Area</label></li>
             </ul>
         </section>
-        <button type="submit">Submit</button>
-        <div style="padding: 7px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="BookingCustomer.php">Back</a></div>
-        <div style="padding: 7px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="SelectedFacilities.php">Next</a></div> 
+        <button type="submit" id="b3">Submit</button>
+        <div style="padding: 7px;"> <a id="b4" href="BookingCustomer.php">Back</a></div>
+        <div style="padding: 7px;"> <a id="b4" href="SelectedFacilities.php">Next</a></div> 
     </form>
 </td>
 </tr>

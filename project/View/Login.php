@@ -23,7 +23,7 @@
                 <td>Password:</td>
                 <td>
                     <div style="padding: 3px;">
-                        <input type="text"name="password" >
+                        <input type="password"name="password" >
                     </div>
                 </td>
             </tr> 

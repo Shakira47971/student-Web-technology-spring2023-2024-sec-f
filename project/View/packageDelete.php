@@ -2,22 +2,22 @@
 if(!isset($_COOKIE['flag'])){
     header('location: login.php');
 }
-$packageId=$_REQUEST ['packageId'];
-
+$packageId = isset($_REQUEST['packageId']) ? $_REQUEST['packageId'] : '';
 ?>
 <html>
 <head>
     <title>Room Management Form</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body>
-    <div style="text-align: center;">
-    <h3><U>Delete Package</U></h3>
+<body id="b8">
+   
+    <h3 id="b1"><U>Delete Package</U></h3>
         <form method="post" action="PackageViewCustomer.php" enctype="">
             
                 
-                <table align="center"  cellspacing="0" >
+                <table align="center"  cellspacing="0" class="c4" >
                <tr> <td>Are you sure want to delete this ID?</td></tr>
-                    <tr>
+                    <tr class="c3">
                         <td>Package Id:</td>
                         <td>
                             
@@ -27,7 +27,7 @@ $packageId=$_REQUEST ['packageId'];
                             
                         
                       </tr>
-                        <tr>
+                        <tr class="c3">
                         <td colspan="2" style="text-align: center;">
                         <div style="padding: 3px;">
                             <button type="submit" name="delete" value="delete">Delete</button>
@@ -37,7 +37,7 @@ $packageId=$_REQUEST ['packageId'];
 </tr>
                           
                 </table> 
-                <div style="padding: 7px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="PackageView.php">Back</a></div>
+                <div style="padding: 7px;"> <a id="b5" href="PackageView.php">Back</a></div>
         </form>
     </div>
 </body>

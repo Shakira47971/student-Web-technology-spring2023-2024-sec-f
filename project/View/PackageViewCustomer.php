@@ -17,16 +17,17 @@ if(!isset($_COOKIE['flag'])){
 <html>
 <head>
     <title> View Room</title>
+    <link rel="stylesheet" href="bookingStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-    <h3><U>View  Package Details</U></h3>
+    <h3 id="b5"><U>View  Package Details</U></h3>
 
     <form method="post" action="SelectedFacilities.php" enctype="">
         
-<table border=1  cellspacing=0 align="center">
+<table border="1"  cellspacing="0" align="center" class="c4">
 
-            <tr>
+            <tr class="c3">
             <td><b>Package Id</b></td>
                 <td><b>Package Name</b></td>
                 <td><b>Package Description</b></td>
@@ -50,7 +51,7 @@ if(!isset($_COOKIE['flag'])){
             <?php } ?>
             
         </table>
-        <div style="padding: 7px;">  <button type="submit">Back </button> </div>
+        <div style="padding: 7px;">  <button type="submit" id="b7">Back </button> </div>
             </form>
         </body>
         </html>

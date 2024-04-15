@@ -19,21 +19,22 @@
 <html>
 <head>
     <title>Edit Room</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-    <h3><U>Edit Facilities</U></h3>
+    <h3 id="b1"><U>Edit package</U></h3>
     <br>
     <form method="post" action="../Controller/PackageEditCheck.php">
     <?php for($i=0; $i<count($PackageEdit); $i++){?>  
-    <table align="center">
+    <table align="center" class="c4" >
     
 
-<tr>
+<tr class="c3">
   <td>Package Id:</td>
   <td><input type="Name" id="packageId" name="packageId" value="<?php echo $PackageEdit[$i]['packageId']; ?>"/></td>
 </tr>
-<tr>
+<tr class="c3">
   <td>Package Name:</td>
   
   <td>
@@ -42,7 +43,7 @@
         </div>
   </td>
 </tr>
-<tr>
+<tr class="c3">
     <td>Package Description:</td>
     <td>
         <div style="padding: 3px;">
@@ -51,7 +52,7 @@
     </td>
 </tr>
 
-<tr>
+<tr class="c3">
   <td>Package Category:</td>
   <td>
   <div style="padding: 3px;">
@@ -70,7 +71,7 @@
     </div>
   </td>
 </tr>
-<tr>
+<tr class="c3">
   <td>Price:</td>
   <td>
   <div style="padding: 3px;">
@@ -78,17 +79,22 @@
      </div>
   </td>
 </tr>
-<tr>
+
+<tr class="c3">
                 <td colspan="2" style="text-align: center;">
                     <div style="padding: 15px;">
-                        <button type="submit" name="update" value="update">Update</button>
-                         <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="PackageView.php">Back</a>  
-                    </div>
+                        <button type="submit"id="b7" name="update" value="update">Update</button>
+                        </div>
                 </td>
             </tr>
+
+                        </table>
+                        
+                        <b><a id="b5" href="PackageView.php">Back</a></b>  
+                   
             <?php } ?>
-</table>
- 
+
+           
         
     </form>
 

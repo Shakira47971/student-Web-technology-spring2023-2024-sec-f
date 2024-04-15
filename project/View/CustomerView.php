@@ -17,14 +17,15 @@ $_SESSION['guest'] = $guest;
 <html>
 <head>
     <title> View Room</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body style="text-align: center;">
+<body id="b8">
 
-    <h3><U>View Customer Details</U></h3>
+    <h3 id="b1"><U>View Customer Details</U></h3>
 
 
-<table border=1  cellspacing=0 align="center">
-            <tr>
+<table border=1  cellspacing=0 align="center"  class="c4">
+            <tr  class="c3">
                 <td><b>Guest Id</b></td>
                 <td><b>Guest Number</b></td>
                 <td><b>room Type</b></td>
@@ -43,13 +44,13 @@ $_SESSION['guest'] = $guest;
                 <td><?php echo $guest[$i]['checkoutDate']; ?></td>
                 <td><?php echo $guest[$i]['price']; ?></td>
                 
-               <td> <a href="CustomerEdit.php?guestId=<?=$guest[$i]['guestId']?>"> Edit </a></td> 
-               <td> <a href="CustomerDelete.php?guestId=<?=$guest[$i]['guestId']?>">Delete </a></td> 
+               <td> <a  id="b5" href="CustomerEdit.php?guestId=<?=$guest[$i]['guestId']?>"> Edit </a></td> 
+               <td> <a  id="b5" href="CustomerDelete.php?guestId=<?=$guest[$i]['guestId']?>">Delete </a></td> 
             </tr>
             <?php } ?>
         </table>
-        <div style="padding: 3px;"> <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="RoomAdmin.php">Next</a>
-         <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="BookingAdmin.php">Back</a></div>
+        <div style="padding: 3px;"> <a  id="b5"  href="RoomAdmin.php">Next</a>
+         <a  id="b5" href="BookingAdmin.php">Back</a></div>
            
         </body>
         </html>

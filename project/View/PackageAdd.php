@@ -12,16 +12,17 @@ require_once('../Model/packageadmin.php');
     <html>
 <head>
     <title> View Room</title>
+    <link rel="stylesheet" href="bookingStyle.css"/>
 </head>
 
-    <body style="text-align: center;">
+    <body id="b8">
 
-        <h3><u> Add Package </u></h3>
+        <h3 id="b5"><u> Add Package </u></h3>
         <form method="post" action="logOut.php" enctype="">
         
 
-        <table border=1  cellspacing=0 align="center">
-            <tr>
+        <table border="1"  cellspacing="0" align="center" class="c4">
+            <tr class="c3">
             <td>Package Id</td>
                 <td>Package Name</td>
                 <td>Package Description</td>
@@ -30,7 +31,7 @@ require_once('../Model/packageadmin.php');
                  
             </tr>
             <?php for($i=0; $i<count($package); $i++){?>
-            <tr>
+            <tr >
             <td><?php echo $package[$i]['packageId']; ?></td>
                 <td><?php echo $package[$i]['packageName']; ?></td>
                 <td><?=$package[$i]['packageDescription'] ?></td>
@@ -39,14 +40,14 @@ require_once('../Model/packageadmin.php');
                
                 </tr>
               <div style="padding: 7px;">
-<a href="PackageViewCustomer.php?packageId=<?=$package[$i]['packageId']?>"> Back </a></div>
-  <div style="padding: 7px;">
-<a href="PackageDelete.php?packageId=<?=$package[$i]['packageId']?>"> Delete </a></div>
+<a  id="b4" href="PackageViewCustomer.php?packageId=<?=$package[$i]['packageId']?>"> Back </a>
+  
+<a id="b4" href="PackageDelete.php?packageId=<?=$package[$i]['packageId']?>"> Delete </a></div>
                 <?php } ?>
 </table>
 
                        <div style="padding: 7px;">
-                       <button type="submit">Log Out </button>
+                       <button type="submit" id="b7">Log Out </button>
                         </div>
 </form>
 <body>

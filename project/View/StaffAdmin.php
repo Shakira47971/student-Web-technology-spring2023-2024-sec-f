@@ -9,13 +9,14 @@ if(!isset($_COOKIE['flag'])){
 <head>
     
     <title>Staff Management</title>
+    <link rel="stylesheet" href="adminStyle.css"/>
 </head>
-<body>
-<div style="text-align: center;">
-<h3><U>Staff Details</U></h3>
+<body id="b8">
+
+<h3 id="b1"><U>Staff Details</U></h3>
 <form method="post" action="../Controller/staffAddCheck.php" enctype="">
-        <table align="center" cellspacing="0">
-        <tr>
+        <table align="center" class="c1">
+        <tr class="c2">
                 <td> Staff Id:</td>
                 <td>
                     <div style="padding: 3px;"><input type="text" name="staffId">
@@ -24,7 +25,7 @@ if(!isset($_COOKIE['flag'])){
                     <td> Enter 2 digit unique id</td>
                 </td>
             </tr> 
-            <tr>
+            <tr class="c2">
                 <td> Staff Name:</td>
                 <td>
                     <div style="padding: 3px;"><input type="text" name="staffName">
@@ -33,7 +34,7 @@ if(!isset($_COOKIE['flag'])){
                     <td> Enter your full name</td>
                 </td>
             </tr> 
-            <tr>
+            <tr class="c2">
                 <td>Email:</td>
                 <td>
                     <div style="padding: 3px;"><input type="text" name="email">
@@ -42,7 +43,7 @@ if(!isset($_COOKIE['flag'])){
                     <td>Enter valid email</td>
                 </td>
             </tr> 
-            <tr>
+            <tr class="c2">
                 <td>Department:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -57,7 +58,7 @@ if(!isset($_COOKIE['flag'])){
                     </div>
                 </td> 
             </tr>
-            <tr>
+            <tr class="c2">
                 <td>Contact:</td>    
                 <td>
                     <div style="padding: 3px;">
@@ -66,7 +67,7 @@ if(!isset($_COOKIE['flag'])){
                 </td>
                 <td>Enter valid contact</td>
             </tr>
-            <tr>
+            <tr class="c2">
                 <td>Salary:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -75,7 +76,7 @@ if(!isset($_COOKIE['flag'])){
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="c2">
                 <td>Account Status:</td>
                 <td>
                     <div style="padding: 3px;">
@@ -89,26 +90,26 @@ if(!isset($_COOKIE['flag'])){
             </tr>
 
             
-
+            </table>
        
    
-    <tr>
+    <tr >
         <td colspan="2" style="text-align: center;"><div style="padding: 3px;">    
-        <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="StaffView.php">View</a>
+       <b> <a id="b5" href="StaffView.php">View</a>
                
-            <button type="submit">Add</button>
+            <button type="submit" id="b7">Add</button>
            
            
-            <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="staffUploadFile.php">Picture</a>
+            <a id="b5"href="staffUploadFile.php">Picture</a>
               
             
-                <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="FacilityAdmin.php">Next</a>
-        <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="RoomAdmin.php">Back</a>
+                <a id="b5" href="FacilityAdmin.php">Next</a>
+        <a id="b5" href="RoomAdmin.php">Back</a></b>
                 
 </div>  </td>
     </tr>
 
-</table>
+
 
 </body>
 </html>
