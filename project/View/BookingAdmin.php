@@ -19,7 +19,7 @@ $guest=SearchCustomer($GuestId);
 
          <h3 id="b1"><U>Customer Details</U></h3>
     
-        
+         
         <table align="center"  class="c1">
            
             <tr class="c2">
