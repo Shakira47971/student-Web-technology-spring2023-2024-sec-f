@@ -1,0 +1,54 @@
+
+<html>
+<head>
+    <title>Degree</title>
+</head>
+<body>
+<h3></h3>
+    <form method="post" action="../Controller/DegreeCheck.php" enctype="">
+        <table>
+            <tr align="left">
+                <fieldset style="width: 300px;">
+                    <legend><b>DEGREE</b></legend>
+                    <input type="checkbox" id="SSC" name="check[]" value="SSC" />SSC
+                    <input type="checkbox" id="HSC" name="check[]" value="HSC" />HSC
+                    <input type="checkbox" id="BSC" name="check[]" value="BSc" />BSc 
+                    <hr>
+                    <div style="padding: 3px;"> 
+                        <input type="button" name="submit" value="Submit" onclick="validateDegree()" />
+                    </div>
+                </fieldset>
+            </tr>
+        </table>
+    </form>
+    <h3></h3>
+    <script>
+        function validateDegree() {
+            let obj = document.getElementsByTagName('h3')[0];
+            let ssc = document.getElementById('SSC').checked;
+            let hsc = document.getElementById('HSC').checked;
+            let bsc = document.getElementById('BSC').checked;
+
+            if (!(ssc || hsc || bsc)) {
+                obj.innerHTML = "Please select at least one degree.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            let degree;
+
+            if (ssc) {
+                degree = "SSC";
+            } else if (hsc) {
+                degree = "HSC";
+            } else {
+                degree = "BSC";
+            }
+
+            obj.style.color = 'black';
+            obj.innerHTML = "Selected degree: " + degree;
+            return true;
+        }
+    </script>
+</body>
+</html>
