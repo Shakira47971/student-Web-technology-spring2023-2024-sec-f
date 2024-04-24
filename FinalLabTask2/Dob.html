@@ -1,0 +1,81 @@
+<
+<html>
+<head>
+    <title>DOB</title>
+</head>
+<body>
+    <h3></h3>
+    <form  method="post" action="../Controller/DOBCheck.php" enctype="">
+        <fieldset style="width: 300px;">
+            <legend><b>DATE OF BIRTH</b></legend>
+            <table>
+                <tr>
+                    <td>
+                        <div style="padding:3px; ">
+                            dd <br>
+                            <input type="text" id="dd" name="dd" value="" style="width: 30px;" /> <b>/</b>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="padding:3px;">
+                            mm <br>
+                            <input type="text" id="mm" name="mm" value="" style="width: 30px;" /> <b>/</b>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="padding:3px;">
+                            yyyy <br>
+                            <input type="text" id="yyyy" name="yyyy" value="" style="width: 50px;" /> 
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <div style="padding: 3px;">
+                <input type="button" name="click" value="Submit" onclick="validateDOB()" />
+            </div>
+        </fieldset>
+    </form>
+
+    <script>
+        function validateDOB() {
+            let obj = document.getElementsByTagName('h3')[0];
+            let dd = parseInt(document.getElementById('dd').value);
+            let mm = parseInt(document.getElementById('mm').value);
+            let yyyy = parseInt(document.getElementById('yyyy').value);
+
+            if (isNaN(dd) || isNaN(mm) || isNaN(yyyy)) {
+                obj.innerHTML = "Date is invalid: Please enter numbers for day, month, and year.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            if (dd < 1 || dd > 31 || mm < 1 || mm > 12 || yyyy < 1900 || yyyy > 2016) {
+                obj.innerHTML = "Date is invalid: Values are outside the allowed ranges.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            let maxDays = 31;
+            if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
+                maxDays = 30;
+            } else if (mm == 2) {
+                maxDays = 28;
+                if (yyyy % 4 == 0 && (yyyy % 100 != 0 || yyyy % 400 == 0)) {
+                    maxDays = 29;
+                }
+            }
+
+            if (dd > maxDays) {
+                obj.innerHTML = "Date is invalid: Day is not valid for the selected month.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            obj.innerHTML = "Date is valid!";
+            obj.style.color = 'black';
+            return true;
+        }
+    </script>
+</body>
+</html>

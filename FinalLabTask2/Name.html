@@ -1,0 +1,78 @@
+
+<html>
+<head>
+    <title>Name</title>
+</head>
+<body>
+    <h3></h3>
+    <form method="post" action="../Controller/NameCheck.php" enctype="">
+        <table>
+            <tr align="left">
+                <fieldset style="width: 300px;">
+                    <legend><b>NAME</b></legend>
+                    <div style="padding: 3px;">
+                        <input type="text" id="name" name="Name" value=""/>
+                    </div>
+                    <hr>
+                    <div style="padding: 3px;">
+                        <input type="button" name="click" value="click" onclick="validateName()" />
+                    </div>
+                </fieldset>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function validateName() {
+            let name = document.getElementById('name').value;
+            let obj = document.getElementsByTagName('h3')[0]; 
+
+            if (name === "") {
+                obj.innerHTML = "Name cannot be empty";
+                obj.style.color = 'red';
+                return false;
+            } 
+
+            let words = name.split(/\s+/);
+            if (words.length < 2) {
+                obj.innerHTML = "Name must contain at least two words";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            for (let word of words) {
+                let charCode = word.charCodeAt(0);
+                if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+                    obj.innerHTML = "All words must start with a letter.";
+                    obj.style.color = 'red';
+                    return false;
+                }
+            }
+
+            for (let word of words) {
+                for (let i = 0; i < word.length; i++) {
+                    let char = word[i];
+                    if(checkChar(word[i])){}
+                    else {
+                        obj.innerHTML = "Input can only contain letters (a-z, A-Z), periods (.), and dashes (-).";
+                        obj.style.color = 'red';
+                        return false;
+                    }
+                }
+            }
+            
+            
+            function checkChar(ch){
+            if(ch >= 'A' && ch <= 'Z' || ch >= 'a' && ch <= 'z' || ch == '.' || ch == '_' || ch == ' ') return true;
+            }
+            
+        
+        
+
+            obj.style.color = 'black';
+            obj.innerHTML = "Valid name";
+            return true;
+        }
+    </script>
+</body>
+</html>

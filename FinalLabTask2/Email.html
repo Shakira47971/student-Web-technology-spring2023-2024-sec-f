@@ -1,0 +1,54 @@
+
+<html>
+<head>
+    <title>Email</title>
+</head>
+<body>
+    <h3></h3>
+    <form method="post" action="../Controller/EmailCheck.php" enctype="">
+        <table>
+            <tr align="left">
+                <fieldset style="width: 300px;">
+                    <legend><b>EMAIL</b></legend>
+                    <div style="padding: 3px;">
+                        <input type="text" id="email" name="Email" value=""/>
+                    </div>
+                    <hr>
+                    <div style="padding: 3px;">
+                        <input type="button" name="click" value="Submit" onclick="validateEmail()" />
+                    </div>
+                </fieldset>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function validateEmail() {
+            let email = document.getElementById('email').value;
+            let obj = document.getElementsByTagName('h3')[0]; 
+
+            if (email === "") {
+                obj.innerHTML = "Email Address Cannot be Empty";
+                obj.style.color = 'red';
+                return false;
+            } 
+
+            let isValid = true;
+            let atPos = email.indexOf("@");
+
+            if (atPos === -1 || atPos !== email.length - 10 || email.substr(atPos) !== "@gmail.com") {
+                isValid = false;
+                obj.innerHTML = "Email must be a Gmail address ending with '@gmail.com'";
+                obj.style.color = 'red';
+            }
+
+            if (isValid) {
+                obj.style.color = 'black';
+                obj.innerHTML = "Valid Email Address";
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+<html>
+<head>
+    <title>FORM</title>
+</head>
+<body>
+    <h3></h3>
+   
+        <fieldset style="width: 300px;">  
+            <legend>Profile Picture</legend>
+            <table>
+                <tr>
+                    <td>User Id</td>
+                    <td><input type="text" id="userId" name="userId" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Picture</td>
+                    <td><input type="file" id="picture" name="picture" value="" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <hr>
+                        <button onclick="checkProfile()">Submit</button>
+   
+   
+                    </td>
+                </tr>
+            </table>
+        </fieldset> 
+   
+        <h4 id="message"></h4>
+    <script>
+        function checkProfile() {
+            let userId = document.getElementById("userId").value;
+            let picture = document.getElementById("picture").value;
+            let obj = document.getElementsByTagName('h3')[0]
+            
+            if (userId === "" || isNaN(parseInt(userId)) || parseInt(userId) <= 0) {
+                obj.innerHTML = "User Id cannot be empty and must be a positive number.";
+                obj.style.color = 'red';
+                return false; 
+                return false;
+            } else if (picture === "") {
+               obj.innerHTML = "Picture cannot be empty.";
+               obj.style.color = 'red';
+                return false;
+            } else {
+                obj.style.color = 'black';
+            obj.innerHTML = "submit successfully";
+            return true;
+                
+            }
+        }
+    </script>
+</body>
+</html>

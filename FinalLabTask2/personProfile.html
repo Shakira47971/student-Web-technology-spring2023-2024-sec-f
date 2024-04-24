@@ -1,0 +1,189 @@
+<html>
+<head>
+    <title>Person Profile</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Person Profile</legend>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input id="name" type="text"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input id="email" type="text"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="male">Male
+                    <input type="radio" name="gender" id="female" value="female">Female    
+                    <input type="radio" name="gender" id="other" value="other">Other
+                </td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>
+                    <input id="dd" type="text" placeholder="DD" maxlength="2"> /
+                    <input id="mm" type="text" placeholder="MM" maxlength="2"> /
+                    <input id="yyyy" type="text" placeholder="YYYY" maxlength="4">
+                </td>
+            </tr>
+            <tr>
+                <td>Blood Group</td>
+                <td>
+                    <select id="bloodGroup">
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Degree</td>
+                <td>
+                    <input type="checkbox" id="SSC">SSC
+                    <input type="checkbox" id="HSC">HSC
+                    <input type="checkbox" id="BSC">BSC
+                </td>
+            </tr>
+            <tr>
+                <td>Profile Photo</td>
+                <td><input type="file" id="photo"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="validateProfile()">Submit</button></td>
+            </tr>
+        </table>
+    </fieldset>
+    <h3></h3>
+    <script>
+        function validateProfile() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+           
+            let male = document.getElementById('male').checked;
+            let female = document.getElementById('female').checked;
+            let other = document.getElementById('other').checked;
+            let dd = parseInt(document.getElementById('dd').value);
+            let mm = parseInt(document.getElementById('mm').value);
+            let yyyy = parseInt(document.getElementById('yyyy').value);
+            let selectedBG = document.getElementById('bloodGroup').value;
+            let ssc = document.getElementById('SSC').checked;
+            let hsc = document.getElementById('HSC').checked;
+            let bsc = document.getElementById('BSC').checked;
+
+            let obj = document.getElementsByTagName('h3')[0];
+            if (name === "") {
+                obj.innerHTML = "Name cannot be empty";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            let words = name.split(/\s+/);
+            if (words.length < 2) {
+                obj.innerHTML = "Name must contain at least two words";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            for (let word of words) {
+                let charCode = word.charCodeAt(0);
+                if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+                    obj.innerHTML = "All words must start with a letter.";
+                    obj.style.color = 'red';
+                    return false;
+                }
+            }
+
+            for (let word of words) {
+                for (let i = 0; i < word.length; i++) {
+                    let char = word[i];
+                    if (checkChar(word[i])) {}
+                    else {
+                        obj.innerHTML = "Input can only contain letters (a-z, A-Z), periods (.), and dashes (-).";
+                        obj.style.color = 'red';
+                        return false;
+                    }
+                }
+            }
+
+            function checkChar(ch) {
+                return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch == '.' || ch == '-' || ch == ' ';
+            }
+
+            if (email === "") {
+                obj.innerHTML = "Email Address Cannot be Empty";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            let isValid = true;
+            let atPos = email.indexOf("@");
+
+            if (atPos === -1 || atPos !== email.length - 10 || email.substr(atPos) !== "@gmail.com") {
+                isValid = false;
+                obj.innerHTML = "Email must be a Gmail address ending with '@gmail.com'";
+                obj.style.color = 'red';
+            }
+
+            if (!(male || female || other)) {
+                obj.innerHTML = "Please select a gender.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            if (isNaN(dd) || isNaN(mm) || isNaN(yyyy)) {
+                obj.innerHTML = "Date is invalid: Please enter numbers for day, month, and year.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            if (dd < 1 || dd > 31 || mm < 1 || mm > 12 || yyyy < 1900 || yyyy > 2016) {
+                obj.innerHTML = "Date is invalid: Values are outside the allowed ranges.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            let maxDays = 31;
+            if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
+                maxDays = 30;
+            } else if (mm == 2) {
+                maxDays = 28;
+                if (yyyy % 4 == 0 && (yyyy % 100 != 0 || yyyy % 400 == 0)) {
+                    maxDays = 29;
+                }
+            }
+
+            if (dd > maxDays) {
+                obj.innerHTML = "Date is invalid: Day is not valid for the selected month.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            if (selectedBG === "") {
+                obj.innerHTML = "Please select a valid Blood Group.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            if (!(ssc || hsc || bsc)) {
+                obj.innerHTML = "Please select at least one degree.";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            obj.style.color = 'black';
+            obj.innerHTML = "Submit successful";
+            return true;
+        }
+    </script>
+</body>
+</html>
