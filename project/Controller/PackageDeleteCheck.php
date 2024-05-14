@@ -11,7 +11,7 @@ if (empty($packageId)) {
     $status=Delete($packageId);
     if($status){
        
-    header('location:../View/PackageViewCustomer.php');
+    header('location:../View/PackageView.php');
     }else{
         echo"DB error!";
     }
