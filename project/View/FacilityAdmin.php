@@ -1,3 +1,4 @@
+
 <?php
 if(!isset($_COOKIE['flag'])){
     header('location: login.php');
@@ -7,38 +8,51 @@ if(!isset($_COOKIE['flag'])){
 <head>
     
     <title>Facility Management</title>
-    <link rel="stylesheet" href="adminStyle.css"/>
+    <link rel="stylesheet" href="../Assets/Admin.css"/>
 </head>
 <body id="b8">
 
-<h3 id="b1"><u>Facility Details</u></h3>
+<fieldset id="b9">
+<img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click&Stay</u></h3>
+    
+    <h4 id="b10">Find your next stay</h4>
+  
+  
+                <a id="b11" href="FacilityView.php">See All Facilities</a>
+                
+                
+                <a id="b4" href="StaffView.php">Back</a></div></b>
+                
+</fieldset>
+
 <h3></h3>
-<form method="get" action="../Controller/FacilityAddCheck.php">
+<form method="post" action="../Controller/FacilityAddCheck.php"enctype="multipart/form-data" >
     <table align="center" class="c1">
-        <tr class="c2">
+        <tr class="c1">
             <td>Facility Id:</td>
-            <td><input type="number" name="facilityId" id="facilityId" onkeyup="validateFacilityId()"></td>
-            <td>Enter at least 3 digit unique Id</td>
+            <td><input type="number" name="facilityId" id="facilityId" onkeyup="validatefacilityId()"></td>
+           
         </tr>
-        <tr class="c2">
+        <tr class="c1">
             <td>Facility Name:</td>
             <td>
                 <div style="padding: 3px;">
                     <input type="text" name="facilityName" id="facilityName" onkeyup="validateFacilityName()">
                 </div>
             </td>
-            <td>Enter unique name containing at least 2 characters</td>
+            
         </tr>
-        <tr class="c2">
+        <tr class="c1">
             <td>Facility Description:</td>
             <td>
                 <div style="padding: 3px;">
                     <textarea name="facilityDescription" rows="4" cols="50" id="facilityDescription" onkeyup="validateFacilityDescription()"></textarea>
                 </div>
             </td>
-            <td>Enter unique description containing more than 10 characters</td>
+           
         </tr>
-        <tr class="c2">
+        <tr class="c1">
             <td>Facility Category:</td>
             <td>
                 <div style="padding: 3px;">
@@ -53,61 +67,135 @@ if(!isset($_COOKIE['flag'])){
                 </div>
             </td>
         </tr>
-    </table>
+        <tr class="c1">
+                        <td>Price :</td>
+                        <td>
+                            <div style="padding: 3px;">
+                                <input type="number" name="Fprice" id="Fprice" onkeyup="validatePrice()"/>
+                            </div>
+                        </td>
+                     
+                    </tr>
+                    <tr class="c1">
+    <td>Picture:</td>    
+    <td>
+        <div style="padding: 3px;">
+            <input type="file" id="proPic" name="proPic" accept="image/*" onchange="validateFilename()" />
+        </div>
+        
+    </td>
+</tr>
 
-    <tr class="c2">
+                    
+        <tr class="c1" >
         <td colspan="2" style="text-align: center;">
             <div style="padding: 3px;">
-                <b><a id="b5" href="FacilityView.php">View</a>
-                <button type="submit" id="b7">Add</button>
-                <a id="b5" href="FacilityFile.php">Picture</a>
-                <a id="b5" href="StaffView.php">Back</a></div></b>
+            <button type="submit" id="b7">Add</button></div>
             </td>
         </tr>
+    </table>
+
+   
     </form>
 
 <script>
     function validateFacilityName() {
-        let facilityName = document.getElementById('facilityName').value;
-        let obj = document.getElementsByTagName('h3')[1];
+    let facilityName = document.getElementById('facilityName').value;
+    let obj = document.getElementsByTagName('h3')[1];
+    if (facilityName === "") {
+        obj.innerHTML = "Name cannot be empty";
+        obj.style.color = 'red';
+        return false;
+    } 
+    if (facilityName.length < 2 || facilityName.length > 20) {
+        obj.innerHTML = "Facility Name must be 2 to 20 characters long";
+        obj.style.color = 'red';
+        return false;
+    } else{
+    let xhttp = new XMLHttpRequest();
+      xhttp.open('POST', '../Controller/FacilityAddCheck.php', true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhttp.onreadystatechange = function() {
+          if (xhttp.readyState === 4 && xhttp.status === 200) {
+            const response = JSON.parse(xhttp.responseText);   
+            if (response.facilityName === "valid") {
+              obj.innerHTML = "Name Valid";
+              obj.style.color = 'black';
+              return true;
+            } else {
+              obj.innerHTML = "This Name is already taken. Please choose a different Name";
+              obj.style.color = 'red';
+              return false;
+            }
+          }
+        };
+     
+        xhttp.send('facilityName='+facilityName);
+      }
 
-        if (facilityName.length < 2) {
-            obj.innerHTML = "Facility Name must be at least 2 characters long";
-            obj.style.color = 'red';
-        } else {
-            obj.innerHTML = "Valid facility Name";
-            obj.style.color = 'black';
-            return true;
-        }
+  }
+  
+
+    function validatefacilityId() {
+    let facilityId = document.getElementById('facilityId').value;
+    let obj = document.getElementsByTagName('h3')[1];
+    if (facilityId === "") {
+        obj.innerHTML = "Id cannot be empty";
+        obj.style.color = 'red';
+        return false;
+    } 
+    if (facilityId.length !== 3 || parseInt(facilityId) <= 0) {
+        obj.innerHTML = "Facility Id must be 3 digits long and greater than 0";
+        obj.style.color = 'red';
+        return false;
+    }
+    else{
+    let xhttp = new XMLHttpRequest();
+      xhttp.open('POST', '../Controller/FacilityAddCheck.php', true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhttp.onreadystatechange = function() {
+          if (xhttp.readyState === 4 && xhttp.status === 200) {
+            const response = JSON.parse(xhttp.responseText);   
+            if (response.facilityId === "valid") {
+              obj.innerHTML = "Id Valid";
+              obj.style.color = 'black';
+              return true;
+            } else {
+              obj.innerHTML = "This Id is already taken. Please choose a different Id";
+              obj.style.color = 'red';
+              return false;
+            }
+          }
+        };
+     
+        xhttp.send('facilityId='+facilityId);
+      }
+
+  }
+  
+
+function validateFacilityDescription() {
+    let facilityDescription = document.getElementById('facilityDescription').value;
+    let obj = document.getElementsByTagName('h3')[1];
+    if (facilityDescription === "") {
+        obj.innerHTML = "Description cannot be empty";
+        obj.style.color = 'red';
+        return false;
+    } 
+    if (facilityDescription.length < 5 || facilityDescription.length > 30) {
+        obj.innerHTML = "Facility Description must be 5 to 29 characters long";
+        obj.style.color = 'red';
+        return false;
+    }
+    else {
+        obj.innerHTML = "Valid Description";
+        obj.style.color = 'black';
+        return true;
     }
 
-    function validateFacilityId() {
-        let facilityId = document.getElementById('facilityId').value;
-        let obj = document.getElementsByTagName('h3')[1];
-
-        if (facilityId.length < 3) {
-            obj.innerHTML = "Facility Id must be at least 3 numbers long";
-            obj.style.color = 'red';
-        } else {
-            obj.innerHTML = "Valid facility Id";
-            obj.style.color = 'black';
-            return true;
-        }
-    }
-
-    function validateFacilityDescription() {
-        let facilityDescription = document.getElementById('facilityDescription').value;
-        let obj = document.getElementsByTagName('h3')[1];
-
-        if (facilityDescription.length < 10) {
-            obj.innerHTML = "Facility Description must be at least 10 characters long";
-            obj.style.color = 'red';
-        } else {
-            obj.innerHTML = "Valid facility Description";
-            obj.style.color = 'black';
-            return true;
-        }
-    }
+}
 
     function validateFacilityCategory() {
         let facilityCategory = document.getElementById('facilityCatagory').value;
@@ -123,6 +211,39 @@ if(!isset($_COOKIE['flag'])){
             return true;
         }
     }
+    function validatePrice() {
+    let price = document.getElementById('Fprice').value;
+    let obj = document.getElementsByTagName('h3')[1];
+    if (price === "") {
+        obj.innerHTML = "price cannot be empty";
+        obj.style.color = 'red';
+        return false;
+    } 
+    if (price <= 0 || price >= 500) {
+        obj.innerHTML = "Price must be greater than 0 and at least 500";
+        obj.style.color = 'red';
+    } else {
+        obj.innerHTML = "Valid Price";
+        obj.style.color = 'black';
+        return true;
+    }
+}
+function validateFilename() {
+    let fileInput = document.getElementById('proPic');
+    let obj = document.getElementsByTagName('h3')[1];
+
+
+    if (!fileInput.files || !fileInput.files.length) {
+        obj.innerHTML = "Please select a picture";
+        obj.style.color = 'red';
+        return false;
+    } else {
+        obj.innerHTML = " valid picture";
+        obj.style.color = 'black';
+        return true; 
+    }
+}
+
 </script>
 
 </body>

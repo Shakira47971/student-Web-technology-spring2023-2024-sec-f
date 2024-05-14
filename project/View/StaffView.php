@@ -17,43 +17,39 @@ $_SESSION['staff'] = $staff;
 <html>
 <head>
     <title> View Room</title>
-    <link rel="stylesheet" href="adminStyle.css"/>
+    <link rel="stylesheet" href="../Assets/Admin.css"/>
 </head>
 <body id="b8">
 
-    <h3 id="b1"><U>View  Staff Details</U></h3>
+<fieldset id="b9">
+<img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click & Stay</u></h3>
+    
+    <h4 id="b10">Find your next stay</h4>
+    <a id="b4" href="StaffAdmin.php">Back</a>
+        <a id="b11" href="StaffSearch.php">Next</a>
+      
+</fieldset> 
 
+<div class="room-container">
 
-<table border=1  cellspacing=0 align="center" class="c4">
-            <tr class="c3">
-                <td>Staff Id</td>
-                <td>Staff Name</td>
-                <td>Email</td>
-                <td>Department</td>
-                <td>Contact</td>
-                <td> Salary</td>
-                <td> Account Status</td>
-                <td>Action</td>
-                <td>Action</td>
-            </tr>
             <?php for($i=0; $i<count($staff); $i++){?>
-            <tr>
-                <td><?php echo $staff[$i]['staffId']; ?></td>
-                <td><?=$staff[$i]['staffName'] ?></td>
-                <td><?php echo $staff[$i]['email']; ?></td>
-                <td><?php echo $staff[$i]['department']; ?></td>
-                <td><?php echo $staff[$i]['contact']; ?></td>
-                <td><?php echo $staff[$i]['salary']; ?></td>
-                <td><?php echo $staff[$i]['accountStatus']; ?></td>
+                <div class="room-item"style="text-align: left;">
+                <img src="<?php echo $staff[$i]['proPic'] ?>"id="room-picture">
+               Staff Id:<?php echo $staff[$i]['staffId']; ?><br>
+               Name:<?php echo $staff[$i]['staffName'];?><br>
+                Email:<?php echo $staff[$i]['email']; ?><br>
+               Department:<?php echo $staff[$i]['department']; ?><br>
+               Contact:<?php echo $staff[$i]['contact']; ?><br>
+               Salary:<?php echo $staff[$i]['salary']; ?><br>
+                Status:<?php echo $staff[$i]['accountStatus']; ?><br>
                 
-               <td> <a id="b5" href="staffEdit.php?staffId=<?=$staff[$i]['staffId']?>"> Edit </a></td> 
-               <td> <a  id="b5"href="staffDelete.php?staffId=<?=$staff[$i]['staffId']?>"> Delete </a></td> 
+               <p><b> <a  href="staffEdit.php?staffId=<?=$staff[$i]['staffId']?>"> Edit </a> <span style="padding:7px">
+                <a  href="staffDelete.php?staffId=<?=$staff[$i]['staffId']?>"> Delete </a></span></b> </p>
                
-            </tr>
+            </div>
             <?php } ?>
-        </table>
-        <div style="padding: 7px;"> <a id="b5" href="StaffAdmin.php">Back</a>
-        <a id="b5" href="StaffSearch.php">Next</a></div>
+            </div>
         </body>
         </html>
         

@@ -1,52 +1,57 @@
 <?php
-
-
+session_start();
 if(!isset($_COOKIE['flag'])){
     header('location: login.php');
 }
+require_once('../Model/facilityadmin.php');
+$facility=viewFacility();
+$_SESSION['facility'] = $facility;
+
+
+
 ?>
 <html>
 <head>
     <title>Facilities Form</title>
-    <link rel="stylesheet" href="bookingStyle.css"/>
+    <link rel="stylesheet" href="../Assets/customerStyle.css"/>
 </head>
 <body id="b8">
-<table align="center"  cellspacing="0" >
-    <tr>
-        <td>
-    <h2 id="b5">Select Facilities</h2>
-    <form method="post" action="../View/SelectedFacilities.php">
-             
- 
-        <section id="facilities">
-            <ul class="c4">
-                <li><input type="checkbox"  name="facilities[]" value="Swimming Pool">
-                <label for="swimming_pool">Swimming Pool</label></li>
-                <li><input type="checkbox"  name="facilities[]" value="Gym">
-                <label for="gym">Gym</label></li>
-                <li><input type="checkbox"  name="facilities[]" value="Spa">
-                <label for="spa">Spa</label></li>
-                <li><input type="checkbox"  name="facilities[]" value="Extra beds">
-                <label for="extra_beds">Extra beds</label></li>
-                <li><input type="checkbox"  name="facilities[]" value="Wi-Fi">
-                <label for="wifi">Wi-Fi</label></li>
-                <li><input type="checkbox"  name="facilities[]" value="Tv">
-                <label for="tv">Tv</label></li>
-                <li><input type="checkbox" name="facilities[]" value="Restaurant">
-                <label for="restaurant">Restaurant</label></li>
-                <li><input type="checkbox"  name="facilities[]" value="Conference Rooms">
-                <label for="conference_rooms">Conference Rooms</label></li>
-                <li><input type="checkbox"  name="facilities[]" value="Parking Area">
-                <label for="parking_area">Parking Area</label></li>
-            </ul>
-        </section>
-        <button type="submit" id="b3">Submit</button>
-        <div style="padding: 7px;"> <a id="b4" href="BookingCustomer.php">Back</a></div>
-        <div style="padding: 7px;"> <a id="b4" href="SelectedFacilities.php">Next</a></div> 
-    </form>
-</td>
-</tr>
-</table>
+<fieldset id="b9">
+<img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click&Stay</u></h3>
+    <h4 id="b10">Find your next stay</h4>
+    <a id="b4" href="home.php">home</a>
+    <a id="b11" href="PackageViewCustomer.php">Next</a>
+</fieldset>
+<div class="facility-container">
+<?php for($i=0; $i<count($facility); $i++){?>
+<div class="facility-item" style="text-align: left;">
+<img src="<?php echo $facility[$i]['proPic'] ?>"  id="facility-picture">
+           Facility Id:<?php echo $facility[$i]['facilityId']; ?><br>
+               Name:<?php echo $facility[$i]['facilityName']; ?><br>
+                <?=$facility[$i]['facilityDescription'] ?><br>
+               Catagory:<?php echo $facility[$i]['facilityCatagory']; ?><br>
+               Price:<?php echo $facility[$i]['Fprice']; ?> tk<br>
+                
+                
+               <p> <a id="b12" onclick="validateEdit()" href="SelectedFacilities.php?facilityId=<?=$facility[$i]['facilityId']?>"> Select </a></p>
+               </div>
+    <?php } ?>
+</div>
+       
+
+        <script>
+
+function validateEdit(){
+    
+    
+       alert ( "are u sure u want to select this facility?");
+}
+
+</script>
+
 
 </body>
-</html>
+        </html>
+   
+

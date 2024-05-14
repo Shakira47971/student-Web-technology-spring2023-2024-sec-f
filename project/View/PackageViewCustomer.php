@@ -1,13 +1,15 @@
 <?php
-
-require_once('../Model/packageadmin.php');
-$package=viewPackage();
-
-
-
+session_start();
 if(!isset($_COOKIE['flag'])){
     header('location: login.php');
 }
+require_once('../Model/packageadmin.php');
+$packages=viewPackage();
+$_SESSION['packages'] = $packages;
+
+
+
+
     
 
    
@@ -17,42 +19,41 @@ if(!isset($_COOKIE['flag'])){
 <html>
 <head>
     <title> View Room</title>
-    <link rel="stylesheet" href="bookingStyle.css"/>
+    <link rel="stylesheet" href="../Assets/customerStyle.css"/>
 </head>
 <body id="b8">
+<fieldset id="b9">
+    <img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click & Stay</u></h3>
+    <h4 id="b10">Find your next stay</h4>
+ 
+</fieldset>
 
-    <h3 id="b5"><U>View  Package Details</U></h3>
+<div class="package-container">
+    <?php foreach ($packages as $package) { ?>
+        <div class="package-item" style="text-align: left;">
+            <img src="<?php echo $package['proPic'] ?>" id="package-picture"><br>
+            Package ID: <?php echo $package['packageId']; ?><br>
+            Name: <?php echo $package['packageName']; ?><br>
+            Description: <?php echo $package['packageDescription']; ?><br>
+            Category: <?php echo $package['packageCatagory']; ?><br>
+            Price: <?php echo $package['packagePrice']; ?> tk<br>
+            <p><a id="b12" onclick="validateEdit()" href="SelectedPackage.php?packageId=<?php echo $package['packageId']; ?>">Select</a></p>
+        </div>
+    <?php } ?>
+</div>
 
-    <form method="post" action="SelectedFacilities.php" enctype="">
-        
-<table border="1"  cellspacing="0" align="center" class="c4">
+       
+        <script>
 
-            <tr class="c3">
-            <td><b>Package Id</b></td>
-                <td><b>Package Name</b></td>
-                <td><b>Package Description</b></td>
-                <td><b> Package Catagory</b></td>
-                <td><b> Price</b></td>
-                 <td><b>Action</b></td>
-                
-            </tr>
-            <?php for($i=0; $i<count($package); $i++){?>
-                
-            <tr>
-            <td><?php echo $package[$i]['packageId']; ?></td>
-                <td><?php echo $package[$i]['packageName']; ?></td>
-                <td><?=$package[$i]['packageDescription'] ?></td>
-                <td><?php echo $package[$i]['packageCatagory']; ?></td>
-                <td><?php echo $package[$i]['packagePrice']; ?></td>
-                
-                
-               <td> <a href="packageAdd.php?packageId=<?=$package[$i]['packageId']?>"> Add </a></td> </tr>
-         
-            <?php } ?>
+function validateEdit(){
+    
+    
+       alert ( "are u sure u want to select this package?");
+}
+
+</script>
             
-        </table>
-        <div style="padding: 7px;">  <button type="submit" id="b7">Back </button> </div>
-            </form>
         </body>
         </html>
        

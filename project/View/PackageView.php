@@ -1,54 +1,46 @@
 <?php
 session_start();
-if(!isset($_COOKIE['flag'])){
+if (!isset($_COOKIE['flag'])) {
     header('location: login.php');
+    exit;
 }
 
-
 require_once('../Model/packageadmin.php');
-$packageId = isset($_REQUEST['packageId']) ? $_REQUEST['packageId'] : '';
-$package=viewPackage();
 
-$_SESSION['package'] = $package;
+$packages = viewPackage();
 
-    ?>
+$_SESSION['packages'] = $packages;
+?>
 
 <html>
 <head>
-    <title> View Room</title>
-    <link rel="stylesheet" href="adminStyle.css"/>
+    <title>View Packages</title>
+    <link rel="stylesheet" href="../Assets/Admin.css"/>
 </head>
 <body id="b8">
 
-    <h3 id="b1"><U>View  Package Details</U></h3>
+<fieldset id="b9">
+    <img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click & Stay</u></h3>
+    <h4 id="b10">Find your next stay</h4>
+    <a id="b4" href="PackageAdmin.php">Back</a>
+    <a id="b11" href="AdminHome.php">Home</a>
+</fieldset>
 
+<div class="package-container">
+    <?php foreach ($packages as $package) { ?>
+        <div class="package-item" style="text-align: left;">
+            <img src="<?php echo $package['proPic'] ?>"  id="package-picture"><br>
+            Package ID: <?php echo $package['packageId']; ?><br>
+            Name: <?php echo $package['packageName']; ?><br>
+            Description: <?php echo $package['packageDescription']; ?><br>
+            Catagory: <?php echo $package['packageCatagory']; ?><br>
+            Price: <?php echo $package['packagePrice']; ?> tk<br>
+            <b><a href="packageEdit.php?packageId=<?php echo $package['packageId']; ?>">Edit</a></b>
+            <b><a href="packageDelete.php?packageId=<?php echo $package['packageId']; ?>">Delete</a></b>
+        </div>
+    <?php } ?>
+</div>
 
-<table border=1  cellspacing=0 align="center" class="c4">
-            <tr class="c3">
-            <td>Package Id</td>
-                <td>Package Name</td>
-                <td>Package Description</td>
-                <td> Package Catagory</td>
-                <td> Price</td>
-                 <td>Action</td>
-                <td>Action</td>
-            </tr>
-            <?php for($i=0; $i<count($package); $i++){?>
-            <tr>
-            <td><?php echo $package[$i]['packageId']; ?></td>
-                <td><?php echo $package[$i]['packageName']; ?></td>
-                <td><?=$package[$i]['packageDescription'] ?></td>
-                <td><?php echo $package[$i]['packageCatagory']; ?></td>
-                <td><?php echo $package[$i]['packagePrice']; ?></td>
-                
-                
-               <td> <a id="b5"href="packageEdit.php?packageId=<?=$package[$i]['packageId']?>"> Edit </a></td> 
-               <td> <a  id="b5"href="packageDelete.php?packageId=<?=$package[$i]['packageId']?>"> Delete </a></td> 
-            </tr>
-            <?php } ?>
-        </table>
-        <div style="padding: 7px;"> <a id="b5" href="PackageAdmin.php">Back</a>
-       <a id="b5"href="logOut.php">log Out</a></div>
-        </body>
-        </html>
-        
+</body>
+</html>

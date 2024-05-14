@@ -1,56 +1,67 @@
 <?php
-if(!isset($_COOKIE['flag'])){
+if (!isset($_COOKIE['flag'])) {
     header('location: login.php');
 }
 require_once('../Model/bookings.php');
 $GuestId = isset($_REQUEST['guestId']) ? $_REQUEST['guestId'] : '';
-$guest=SearchCustomer($GuestId);
-
+$guest = SearchCustomer($GuestId);
 ?>
-<html>
-<head>
-    
-    <title>Booking Management</title>
-    <link rel="stylesheet" href="adminStyle.css"/>
-</head>
-<body id="b8">
-    <form >
-   
 
-         <h3 id="b1"><U>Customer Details</U></h3>
+
+<html >
+<head>
+  
+   
+    <title>Booking Management</title>
+    <link rel="stylesheet" href="../Assets/Admin.css"/>
+</head>
+
     
-         
-        <table align="center"  class="c1">
-           
-            <tr class="c2">
+<body id="b8">
+
+<fieldset id="b9">
+<img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click & Stay</u></h3>
+    
+    <h4 id="b10">Find your next stay</h4>
+    <a id="b11" href="AdminHome.php">Home</a>
+    <a id="b4" href="CustomerView.php">See customer Details</a>
+      
+</fieldset>
+<h3 id="validationMessage"></h3> 
+<form>
+
+  
+        <table cellspacing="0" align="center" >
+            <tr class="c3">
                 <td>Guest Id:</td>
                 <td>
                     <div style="padding: 3px;">
-                        <input type="text"name="guestId" >
+                        <input type="text" name="guestId" id="guestId" onkeyup=" validateId()">
                     </div>
                 </td>
-                <tr class="c2">
-                <td colspan="2" align ="center"> 
-           <div style="padding: 3px;"> 
-                
-                
-           <button type="submit">Search </button>
-           <a id="b4" href="CustomerView.php">View</a>
-               
             </tr>
-       
-        </table>
-                <table border=1  cellspacing=0 align="center" class="c4">
             <tr class="c3">
-                <td><b>Guest Id</b></td>
-                <td><b>Guest Number</b></td>
-                <td><b>room Type</b></td>
-                <td><b>Check-in Date</b></td>
-                <td><b> Check-Out Date</b></td>
-                <td><b> Price Range</b></td>
-               
+                <td colspan="4" align="center">
+                    <div style="padding: 3px;">
+                        <button type="submit">Search</button>
+                       
+                    </div>
+                </td>
             </tr>
-            <?php for($i=0; $i<count($guest); $i++){?>
+            </table>  
+       
+        
+        <table cellspacing="0" border="1"  align="center" >
+            <tr class="c3">
+                <td>Guest Id</td>
+                <td>Guest Number</td>
+                <td>Room Type</td>
+                <td>Check-in Date</td>
+                <td>Check-Out Date</td>
+                <td>Price Range</td>
+            </tr>
+            <?php for ($i = 0; $i < count($guest); $i++) { ?>
             <tr>
                 <td><?php echo $guest[$i]['guestId']; ?></td>
                 <td><?php echo $guest[$i]['capacity']; ?></td>
@@ -59,18 +70,23 @@ $guest=SearchCustomer($GuestId);
                 <td><?php echo $guest[$i]['checkoutDate']; ?></td>
                 <td><?php echo $guest[$i]['price']; ?></td>
             </tr> 
-            
-            
             <?php } ?>
         </table>
-           
-           
-           
-   
-    
-    
-   
-</form>
-        <body>
+       
+    </form>
+    <script>
+    function validateId() {
+        let roomId = document.getElementById('guestId').value;
+        let obj = document.getElementById('validationMessage'); 
+        if (roomId.length !== 5 || parseInt(roomId) <= 0) {
+            obj.innerHTML = "Guest Id must be 5 digits long and greater than 0";
+            obj.style.color = 'red';
+        } else {
+            obj.innerHTML = "Valid Id";
+        obj.style.color = 'black';
+        return true;
+        }
+    }
+   </script> 
+</body>
 </html>
-

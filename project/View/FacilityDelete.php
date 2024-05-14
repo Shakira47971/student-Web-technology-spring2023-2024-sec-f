@@ -10,17 +10,22 @@ $facilityId=$_REQUEST ['facilityId'];
 <html>
 <head>
     <title>Room Management Form</title>
-    <link rel="stylesheet" href="adminStyle.css"/>
+    <link rel="stylesheet" href="../Assets/Admin.css"/>
 </head>
 <body id="b8">
-     
-    <h3 id="b1"><U>Delete Facility</U></h3>
+<fieldset id="b9">
+<img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click&Stay</u></h3>
+    <h4 id="b10">Find your next stay</h4>
+    <a id="b4" href="FacilityView.php">Back</a>
+</fieldset>
+   
         <form method="post" action="../Controller/FacilityDeleteCheck.php" enctype="">
             
                 
                 <table align="center"  cellspacing="0" class="c4" >
 
-                <tr><td>Are you sure want to delete this ID?</td></tr>
+               
 
                     <tr class="c3">
                         <td>Facility Id:</td>
@@ -29,17 +34,26 @@ $facilityId=$_REQUEST ['facilityId'];
                                 <input type="text" name="facilityId"value="<?= $facilityId ?>"/>
                             </div>
                         </td>
+                       
                       </tr>
                         <tr class="c3">
                         <td colspan="2" style="text-align: center;">
                         <div style="padding: 3px;">
-                            <button type="submit" name="delete" value="delete">Delete</button>
+                            <button type="submit"id="b7" name="delete" value="delete"onclick="validateEdit()">Delete</button>
                              </div>
                         </td>
                     </tr> 
                 </table> 
            
         </form>
-        <div style="padding: 7px;"> <a id="b5" href="FacilityView.php">Back</a></div>
+        <script>
+
+function validateEdit(){
+    
+    
+       alert ( "are u sure u want to delete it?");
+}
+
+</script>
 </body>
 </html>
