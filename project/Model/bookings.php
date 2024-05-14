@@ -1,15 +1,28 @@
 <?php
 require_once('BookingCustomerDb.php');
 function booking($user){
-    $conn=dbconnection();
-    $sql="insert into bookings values('{$user['guestId']}','{$user['capacity']}','{$user['roomNumber']}','{$user['roomType']}','{$user['checkinDate']}','{$user['checkoutDate']}','{$user['priceRange']}')";
-    if(mysqli_query($conn,$sql)){
-       return true;
-    }else{
-        return false;
-    }
-
+  $conn = dbconnection();
+  $sql = "INSERT INTO bookings VALUES ('{$user['guestId']}', '{$user['capacity']}', '{$user['roomNumber']}', '{$user['roomType']}', '{$user['price']}', '{$user['checkinDate']}', '{$user['checkoutDate']}')";
+  
+  if(mysqli_query($conn, $sql)){
+     return true;
+  } else {
+      return false;
+  }
 }
+
+function updateGuestPic($GuestId, $target_file) {
+
+  $con = dbConnection();
+  $sql = "UPDATE bookings SET proPic = '$target_file' WHERE guestId = '$GuestId'";
+
+  if (mysqli_query($con, $sql)) {
+      return true;
+  } else {
+      return false;
+  }
+}
+
 function uniId($GuestId) {
     $conn = dbConnection();
     $sql = "SELECT COUNT(*) FROM bookings WHERE guestId = '$GuestId'";
@@ -27,9 +40,21 @@ function uniId($GuestId) {
     }
   }
   
-function search($roomType, $price, $GuestNumber) {
+  function search($GuestNumber, $roomType, $Price, $CheckinDate, $CheckoutDate) {
     $conn = dbconnection();
-    $sql = "SELECT * FROM crudadmin WHERE roomType ='$roomType' AND price='$price' AND capacity='$GuestNumber'";
+   
+    $sql = "SELECT * FROM crudadmin 
+            WHERE capacity >= '$GuestNumber' 
+              AND roomType = '$roomType' 
+              AND price <= '$Price' 
+              AND checkinDate <= '$CheckinDate' 
+              AND checkoutDate >= '$CheckoutDate'
+              AND roomNumber NOT IN (
+                  SELECT roomNumber FROM bookings 
+                  WHERE (checkinDate BETWEEN '$CheckinDate' AND '$CheckoutDate') 
+                   AND (checkoutDate BETWEEN '$CheckinDate' AND '$CheckoutDate')
+              )";
+
     $result = mysqli_query($conn, $sql);
     $room = [];
 
@@ -39,18 +64,19 @@ function search($roomType, $price, $GuestNumber) {
 
     return $room; 
 }
-function getRoom($roomNumber){ 
 
+
+
+function getRoom($RoomNumber) {
   $con = dbConnection();
-  $sql = "SELECT * FROM crudadmin WHERE roomNumber='$roomNumber' ";
+  $sql = "SELECT * FROM crudadmin WHERE roomNumber='$RoomNumber' ";
   $result = mysqli_query($con, $sql);
-$room = [];
+  $room = [];
 
-while($row = mysqli_fetch_assoc($result)){
-  array_push($room, $row);
-}
-return $room;
-
+  while ($row = mysqli_fetch_assoc($result)) {
+      array_push($room, $row);
+  }
+  return $room;
 }
 
 
@@ -80,12 +106,12 @@ function Delete($GuestId){
       return false;
   }
 }
-function Edit($GuestId,$GuestNumber,$RoomType,$CheckinDate,$CheckoutDate,$PriceRange) {
+function Edit($GuestId,$GuestNumber,$RoomType,$CheckinDate,$CheckoutDate,$Price) {
   
   $conn = dbconnection();
 
       
-  $sql = "UPDATE bookings SET capacity='$GuestNumber',roomType='$RoomType',checkinDate ='$CheckinDate', checkoutDate='$CheckoutDate',price='$PriceRange' WHERE guestId='$GuestId'";
+  $sql = "UPDATE bookings SET capacity='$GuestNumber',roomType='$RoomType',checkinDate ='$CheckinDate', checkoutDate='$CheckoutDate',price='$Price' WHERE guestId='$GuestId'";
      
   if (mysqli_query($conn, $sql)) {
     

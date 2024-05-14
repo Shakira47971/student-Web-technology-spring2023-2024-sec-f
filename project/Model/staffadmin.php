@@ -1,8 +1,8 @@
 <?php
-require_once('BookingCustomerDb.php');
+require_once('db.php');
 function Add($user){
     $conn=dbconnection();
-    $sql="insert into staffadmin values ('{$user['staffId']}','{$user['staffName']}','{$user['email']}','{$user['department']}','{$user['contact']}','{$user['salary']}','{$user['accountStatus']}')";
+    $sql="insert into staffadmin values ('{$user['staffId']}','{$user['staffName']}','{$user['email']}','{$user['department']}','{$user['contact']}','{$user['salary']}','{$user['accountStatus']}','{$user['proPic']}')";
     if (mysqli_query($conn, $sql)) {
         return true;
     }else{
@@ -10,6 +10,7 @@ function Add($user){
     }
    
 }
+
 function uniId($staffId) {
     $conn = dbConnection();
     $sql = "SELECT COUNT(*) FROM staffadmin WHERE staffId = '$staffId'";
@@ -26,9 +27,9 @@ function uniId($staffId) {
       }
     }
   }
-  function uniEmail($Email) {
+  function uniEmail($email) {
     $conn = dbConnection();
-    $sql = "SELECT COUNT(*) FROM staffadmin WHERE email= '$Email'";
+    $sql = "SELECT COUNT(*) FROM staffadmin WHERE email= '$email'";
     $result = mysqli_query($conn, $sql);
   
     if (!$result) {
@@ -42,6 +43,9 @@ function uniId($staffId) {
       }
     }
   }
+  
+  
+
 
 function viewStaff(){
 
@@ -68,12 +72,12 @@ function Delete($staffId){
         return false;
     }
 }
-function Edit($staffId,$staffName,$Email,$Department,$Contact,$Salary,$accountStatus){
+function Edit($staffId,$staffName,$email,$department,$contact,$salary,$accountStatus, $target_file,$des){
     
     $conn = dbconnection();
 
         
-    $sql = "UPDATE staffadmin SET staffName='$staffName',email='$Email',department ='$Department', contact='$Contact',salary='$Salary',accountStatus='$accountStatus' WHERE staffId='$staffId'";
+    $sql = "UPDATE staffadmin SET staffName='$staffName',email='$email',department ='$department', contact='$contact',salary='$salary',accountStatus='$accountStatus',proPic=' $target_file',proPic='$des' WHERE staffId='$staffId'";
        
     if (mysqli_query($conn, $sql)) {
       
@@ -82,6 +86,8 @@ function Edit($staffId,$staffName,$Email,$Department,$Contact,$Salary,$accountSt
         return false;
     }
 }
+
+
 function SearchStaff($staffId){
     
     $con = dbConnection();

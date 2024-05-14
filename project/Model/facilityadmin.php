@@ -1,8 +1,8 @@
 <?php
-require_once('BookingCustomerDb.php');
+require_once('db.php');
 function Add($user){
     $conn=dbconnection();
-    $sql="insert into facilityadmin values ('{$user['facilityId']}','{$user['facilityName']}','{$user['facilityDescription']}','{$user['facilityCatagory']}')";
+    $sql="INSERT INTO facilityadmin VALUES  ('{$user['facilityId']}','{$user['facilityName']}','{$user['facilityDescription']}','{$user['facilityCatagory']}','{$user['Fprice']}','{$user['proPic']}')";
     
     if (mysqli_query($conn, $sql)) {
         return true;
@@ -11,6 +11,20 @@ function Add($user){
     }
    
 }
+function getFacility($facilityId){ 
+
+  $con = dbConnection();
+  $sql = "SELECT * FROM facilityadmin WHERE facilityId='$facilityId' ";
+  $result = mysqli_query($con, $sql);
+$facility = [];
+
+while($row = mysqli_fetch_assoc($result)){
+  array_push($facility, $row);
+}
+return $facility;
+
+}
+
 function uniId($facilityId) {
     $conn = dbConnection();
     $sql = "SELECT COUNT(*) FROM facilityadmin WHERE facilityId = '$facilityId'";
@@ -44,22 +58,7 @@ function uniId($facilityId) {
     }
   }
   
-  function uniFacilityD($facilityDescription) {
-    $conn = dbConnection();
-    $sql = "SELECT COUNT(*) FROM facilityadmin WHERE facilityDescription = '$facilitDescription'";
-    $result = mysqli_query($conn, $sql);
   
-    if (!$result) {
-      return false;
-    } else {
-      $row = mysqli_fetch_assoc($result);
-      if ($row['COUNT(*)'] > 0) {
-        return true; 
-      } else {
-        return false; 
-      }
-    }
-  }
 
 
 function viewFacility(){
@@ -88,12 +87,12 @@ function Delete($facilityId){
         return false;
     }
 }
-function Edit($facilityId,$facilityName,$facilityDescription,$Catagory){
+function Edit($facilityId,$facilityName,$facilityDescription,$Catagory,$price,$target_file){
     
     $conn = dbconnection();
 
         
-    $sql = "UPDATE facilityadmin SET facilityName='$facilityName',facilityDescription='$facilityDescription', facilityCatagory='$Catagory' WHERE facilityId='$facilityId' ";
+    $sql = "UPDATE facilityadmin SET facilityName='$facilityName',facilityDescription='$facilityDescription', facilityCatagory='$Catagory',Fprice='$price', proPic='$target_file' WHERE facilityId='$facilityId' ";
        
     if (mysqli_query($conn, $sql)) {
       

@@ -1,9 +1,9 @@
 <?php
-require_once('BookingCustomerDb.php');
+require_once('db.php');
 
 function Add($user){
     $conn = dbconnection();
-    $sql = "INSERT INTO crudAdmin VALUES ('{$user['roomId']}', '{$user['roomType']}', '{$user['roomNumber']}', '{$user['capacity']}', '{$user['price']}')";
+    $sql = "INSERT INTO crudAdmin VALUES ('{$user['roomId']}', '{$user['roomType']}', '{$user['roomNumber']}', '{$user['capacity']}','{$user['price']}','{$user['checkinDate']}','{$user['checkoutDate']}','{$user['roomStatus']}', '{$user['proPic']}')";
     
     if (mysqli_query($conn, $sql)) {
         return true;
@@ -48,7 +48,7 @@ function uniNumber($roomNumber) {
 
 function viewRoom(){
     $con = dbConnection();
-    $sql = "SELECT * FROM crudadmin";
+    $sql = "SELECT *, (CASE WHEN roomNumber IN (SELECT roomNumber FROM bookings) THEN 'booked' ELSE 'available' END) AS roomStatus FROM crudadmin";
     $result = mysqli_query($con, $sql);
     $room= [];
     
@@ -70,9 +70,10 @@ function Delete($roomId){
     }
 }
 
-function Edit($roomId, $roomType, $roomNumber, $capacity, $price){
+function Edit($roomId, $roomType, $roomNumber, $capacity, $price, $checkinDate, $checkoutDate,  $target_file){
     $conn = dbconnection();
-    $sql = "UPDATE crudadmin SET roomType='$roomType', roomNumber='$roomNumber', capacity='$capacity', price='$price' WHERE roomId='$roomId'";
+   
+    $sql = "UPDATE crudadmin SET roomType='$roomType', roomNumber='$roomNumber', capacity='$capacity', price='$price', checkinDate='$checkinDate', checkoutDate='$checkoutDate',  proPic='$target_file' WHERE roomId='$roomId'";
        
     if (mysqli_query($conn, $sql)) {
         return true;
@@ -80,6 +81,8 @@ function Edit($roomId, $roomType, $roomNumber, $capacity, $price){
         return false;
     }
 }
+
+
 function roomEdit($roomId){
     $con = dbConnection();
     $sql = "select * from crudadmin where roomId='{$roomId}'";
@@ -92,4 +95,19 @@ function roomEdit($roomId){
 
     return $room;
 }
+
+function bookRoom($roomNumber, $checkinDate, $checkoutDate) {
+    $conn = dbconnection();
+    $sql_insert_booking = "INSERT INTO bookings (roomNumber, checkinDate, checkoutDate) VALUES ('$roomNumber', '$checkinDate', '$checkoutDate')";
+    
+    if (mysqli_query($conn, $sql_insert_booking)) {
+       
+        $sql_update_room = "UPDATE crudadmin SET status = 'booked' WHERE roomNumber= '$roomNumber'";
+        mysqli_query($conn, $sql_update_room);
+        return true; 
+    } else {
+        return false; 
+    }
+}
+
 ?>
