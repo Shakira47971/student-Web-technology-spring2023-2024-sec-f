@@ -20,7 +20,7 @@ if(!isset($_COOKIE['flag'])){
     
     <h4 id="b10">Find your next stay</h4>
     <a id="b11" href="roomView.php">See All Rooms</a>
-    <a id="b4" href="CustomerView.php">Back</a>
+    <a id="b4" href="AdminHome.php">Back</a>
     
       
 </fieldset>

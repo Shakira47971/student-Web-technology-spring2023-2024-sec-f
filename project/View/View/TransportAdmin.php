@@ -19,8 +19,8 @@ if(!isset($_COOKIE['flag'])){
     <h3 id="b1"><u>Click & Stay</u></h3>
     
     <h4 id="b10">Find your next stay</h4>
-    <a id="b11" href="transportView.php">See All transports</a>
-    <a id="b4" href="PackageView.php">Back</a>
+    <a id="b11" href="TransportView.php">See All transports</a>
+    <a id="b4" href="AdminHome.php">home</a>
     
       
 </fieldset>

@@ -1,8 +1,8 @@
 
 <?php
 
-    
-
+session_start(); 
+require_once('../Model/guestdb.php');
     if(!isset($_COOKIE['flag'])){
         header('location: login.php');
     }
@@ -12,7 +12,9 @@ $RoomNumber= isset($_REQUEST['roomNumber']) ? $_REQUEST['roomNumber'] : '';
 
 $room = getRoom($RoomNumber);
 
+$user = $_SESSION['username'];
 
+$name=name($user);
 
 
 ?>
@@ -39,20 +41,21 @@ $room = getRoom($RoomNumber);
 <table border="0"  cellspacing="0" align="center" class="c8">
        
 
-<?php for($i=0; $i<count($room); $i++){?>
+
 
             
             
             <tr class="c1">
-            
+            <?php for($i=0; $i<count($name); $i++){?>
                     <td>Guest Id:</td>    
                     <td>
                         <div style="padding: 3px;">
-                            <input type="text"name="guestId" id="guestId" onkeyup=" validateId()">
+                            <input type="text"name="guestId" id="guestId" value="<?php echo $name[$i]['gid']; ?>" onkeyup=" validateId()" >
                         </div>
                     </td>
-                    
+                    <?php } ?>
                 </tr>
+                <?php for($i=0; $i<count($room); $i++){?>
                 <tr class="c1">
                     <td>Room Number:</td>    
                     <td>

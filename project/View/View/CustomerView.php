@@ -28,7 +28,7 @@ $_SESSION['guest'] = $guest;
     
     <h4 id="b10">Find your next stay</h4>
   
-    <a  id="b11"  href="RoomAdmin.php">Next</a>
+    <a  id="b11"  href="AdminHome.php">Home</a>
          <a  id="b4" href="BookingAdmin.php">Back</a>
 </fieldset>
 

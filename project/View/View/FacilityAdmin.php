@@ -22,7 +22,7 @@ if(!isset($_COOKIE['flag'])){
                 <a id="b11" href="FacilityView.php">See All Facilities</a>
                 
                 
-                <a id="b4" href="StaffView.php">Back</a></div></b>
+                <a id="b4" href="AdminHome.php">Home</a></div></b>
                 
 </fieldset>
 

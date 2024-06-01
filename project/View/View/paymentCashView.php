@@ -20,6 +20,7 @@
         <img src="../Assets/logo.png" id="logo-image">
         <h3 id="b1"><u>Click&Stay</u></h3>
         <h4 id="b10">Find your next stay</h4>
+        <a id="b4" href="home.php">home</a>
     </fieldset>
     <h2> payment Type: Cash </h2>
     <form method="post" action="logOut.php" enctype="">

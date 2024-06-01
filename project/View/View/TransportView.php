@@ -5,7 +5,7 @@ if (!isset($_COOKIE['flag'])) {
     exit;
 }
 require_once('../Model/transportadmin.php');
-$transports = viewTransport();
+$transports =  viewTransport();
 ?>
 
 <html>
@@ -18,7 +18,6 @@ $transports = viewTransport();
     <img src="../Assets/logo.png" id="logo-image">
     <h3 id="b1"><u>Click & Stay</u></h3>
     <h4 id="b10">Find your next stay</h4>
-    <a id="b11" href="StaffAdmin.php">Next</a>
     <a id="b4" href="TransportAdmin.php">Back</a>
 </fieldset>
 
@@ -33,7 +32,7 @@ $transports = viewTransport();
             Capacity:<?php echo $transport['capacity']; ?><br>
             Price:<?php echo $transport['price']; ?> tk<br>
             
-            Status:<?php echo $transport['trasportStatus']; ?><br> 
+            Status:<?php echo $transport['transportStatus']; ?><br> 
             <p>
                 <b><a href="transportEdit.php?transportId=<?php echo $transport['transportId'] ?>">Edit</a>
                 <span style="padding:7px">

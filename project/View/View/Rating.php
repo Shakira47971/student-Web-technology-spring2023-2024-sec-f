@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hotel Rating</title>
-    <link rel="stylesheet" href="Assets/customerStyle.css"/>
+    <link rel="stylesheet" href="../Assets/customerStyle.css"/>
     <style>
         .rating-container {
             text-align: center;
@@ -30,6 +30,7 @@
     <h3 id="b1"><u>Click&Stay</u></h3>
     
     <h4 id="b10">Find your next stay</h4>
+    <a id="b4" href="home.php">home</a>
   
 </fieldset>
 
@@ -78,12 +79,8 @@
                     ratingResponse.textContent = 'Please select a rating.';
                     return;
                 }
-                if (!review) {
-                    ratingResponse.textContent = 'Please write a review.';
-                    return;
-                }
                 
-                fetch('../Controller/submit_rating.php', {  
+                fetch('../Controller/RatingCheck.php', {  
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'

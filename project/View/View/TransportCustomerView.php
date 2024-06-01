@@ -11,8 +11,7 @@ $price = isset($_REQUEST['price']) ? $_REQUEST['price'] : '';
 $capacity = isset($_REQUEST['capacity']) ? $_REQUEST['capacity'] : '';
 $location= isset($_REQUEST['location']) ? $_REQUEST['location'] : '';
 $transports=search($capacity, $transportType, $price, $location);
-$transports=viewAvailableTransport();
-$_SESSION['transport'] = $transports;
+
 ?>
 
 <!DOCTYPE html>

@@ -1,0 +1,57 @@
+<?php
+require_once('../Model/Schedledb.php');
+
+if(!isset($_COOKIE['flag'])){
+    header('location: login.php');
+}
+
+
+$schedule=getAllSchedule();
+
+
+?>
+<html>
+    <head>
+        <title>Profile</title>
+        <link rel="stylesheet" href="../Assets/Admin.css"/>
+    </head>
+<body id="b8">
+ <fieldset id="b9">
+    <img src="../Assets/logo.png" id="logo-image">
+    
+    <h3 id="b1"><u>Click & Stay</u></h3>
+    
+    <h4 id="b10">Find your next stay</h4>
+    <a id="b11" href="CalenderAdmin.php">back</a>
+    
+      
+</fieldset>
+ 
+     
+                    <fieldset width="200">
+                        <table border=1; cellspacing='0' class="c4">
+                            <tr class="c3">
+                           
+                <td>ID</td>
+                <td>DATE</td>
+                <td>SCHEDULE</td>
+                <td>TIME</td>
+                <td>DEPARTMENT</td>
+                <td>ACTION</td>
+            </tr><?php for($i=0; $i<count($schedule); $i++){?>
+                            <tr>
+                            <td> <?php echo $schedule[$i]['sid']; ?></td>  
+                            <td> <?php echo $schedule[$i]['dd']; ?>/<?php echo $schedule[$i]['mm']; ?>/<?php echo $schedule[$i]['yyyy']; ?></td>  
+                            <td> <?php echo $schedule[$i]['schedule']; ?></td>  
+                            <td> <?php echo $schedule[$i]['hh']; ?>:<?php echo $schedule[$i]['min']; ?><?php echo $schedule[$i]['meridiun']; ?></td>  
+                            <td> <?php echo $schedule[$i]['department']; ?></td>  
+                            <td><a href="updateCalView.php?sid=<?=$schedule[$i]['sid']?>"> Update </a> </td>
+                        </tr>
+                        <?php } ?>
+        </table>
+                        
+            </fieldset>
+</body>
+</html>
+
+    

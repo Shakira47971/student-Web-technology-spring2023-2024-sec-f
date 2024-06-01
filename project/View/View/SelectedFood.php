@@ -22,7 +22,7 @@ $foodId = isset($_REQUEST['foodId']) ? $_REQUEST['foodId'] : '';
     
     <h4 id="b10">Find your next stay</h4>
    
-    <a id="b11" href="PackageViewCustomer.php">Next</a>
+    <a id="b11" href="FoodCustomer.php">Back</a>
 </fieldset>
 
 <form method="post" action="PackageViewCustomer.php" enctype="">         

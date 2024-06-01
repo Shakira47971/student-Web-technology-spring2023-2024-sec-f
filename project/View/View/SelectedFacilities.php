@@ -21,8 +21,8 @@ $facilityId = isset($_REQUEST['facilityId']) ? $_REQUEST['facilityId'] : '';
     <h3 id="b1"><u>Click&Stay</u></h3>
     
     <h4 id="b10">Find your next stay</h4>
-   
-    <a id="b11" href="PackageViewCustomer.php">Next</a>
+    <a id="b4" href="FacilityCustomer.php">Back</a>
+    <a id="b11" href="home.php">home</a>
 </fieldset>
 
 <form method="post" action="PackageViewCustomer.php" enctype="">         

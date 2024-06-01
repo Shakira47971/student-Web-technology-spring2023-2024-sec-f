@@ -27,7 +27,7 @@ $room = getRoom($RoomNumber);
     
     <h4 id="b10">Find your next stay</h4>
     <a id="b4" href="BookingCustomer.php">Back</a>
-    <a id="b11" href="FacilityCustomer.php">Next</a>
+    <a id="b11" href="home.php">home</a>
 </fieldset>
 
    

@@ -24,8 +24,7 @@ $_SESSION['food'] = $food;
 <img src="../Assets/logo.png" id="logo-image">
     <h3 id="b1"><u>Click&Stay</u></h3>
     <h4 id="b10">Find your next stay</h4>
-     <a id="b4" href="RoomAdmin.php">Back</a>
-         <a id="b11"href="PackageAdmin.php">Next</a>
+     <a id="b4" href="FoodAdmin.php">Back</a>
 </fieldset>
    
 

@@ -20,9 +20,7 @@ if(!isset($_COOKIE['flag'])){
     
     <h4 id="b10">Find your next stay</h4>
     <a id="b11" href="StaffView.php">See Staff List</a>
-    
-                <a id="b12" href="FoodAdmin.php">Next</a>
-                <a id="b4" href="RoomAdmin.php">Back</a></b>
+                <a id="b4" href="AdminHome.php">Home</a></b>
       
 </fieldset>
 
@@ -105,11 +103,8 @@ if(!isset($_COOKIE['flag'])){
   <td> <div style="padding: 3px;">  <input type="file" name="proPic" accept="image/*"  id="proPic"value="" onchange=" validateFilename()" /> <br></td>
  
        
-</tr>
-    </table>
-   
-    <tr>
-        <td colspan="2" style="text-align: center;">
+</tr>  <tr>
+        <td colspan="2" align="center">
             <div style="padding: 3px;">
                 
                 <button type="submit" id="b7">Add</button>
@@ -117,6 +112,9 @@ if(!isset($_COOKIE['flag'])){
             </div>
         </td>
     </tr>
+    </table>
+   
+  
 </form>
 
 <script>

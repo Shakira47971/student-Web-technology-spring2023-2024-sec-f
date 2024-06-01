@@ -28,7 +28,7 @@
         
         <h4 id="b10">Find your next stay</h4>
         <a id="b11" href="roomCustomerView.php">See All Rooms</a>
-          <a id="b4" href="login.php">Back</a>
+          <a id="b4" href="home.php">home</a>
     </fieldset>
     <h3 id="validationMessage"></h3> 
     <fieldset id="b14" >

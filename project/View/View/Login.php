@@ -1,41 +1,50 @@
-
 <html>
 <head>
-    
-    <title>Booking Management</title>
+    <title></title>
+    <link rel="stylesheet" href="../Assets/customerStyle.css"/>
 </head>
-<body style ="text-align: center;">
-   
-   
-     <h3><u>Log in</u></h3>
-     <form method="post" action="../Controller/LoginCheck.php" enctype="">
-     
-        <table align="center" cellspacing="0">
-            <tr>
-                <td>Username:</td>
-                <td>
-                    <div style="padding: 3px;">
-                        <input type="text" name="username" >
-                    </div>
-                </td>
-            </tr> 
-            <tr>
-                <td>Password:</td>
-                <td>
-                    <div style="padding: 3px;">
-                        <input type="password"name="password" >
-                    </div>
-                </td>
-            </tr> 
-            <tr><td colspan=2><hr></td></tr>
-<tr><td colspan=2><input type="CheckBox" name="CheckBox" value="">Remember Me</td></tr>
-<tr><td colspan=2><input type="submit" name="Submit" value="Submit"/>
-                 
-          <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="ForgotPassword.php">Forgot Password</a>
-          <a style="color:rgb(0, 102, 255);margin-top: 10px; padding:10px;" href="Registration.php">Registration</a>
-          </td>
-        </table>
-</form>
-        <body>
-</html>
+<body id="b8">
+        <fieldset id="b9">
+<img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click & Stay</u></h3>
+    
+    <h4 id="b10">Find your next stay</h4>
 
+ 
+      
+</fieldset>
+
+        <fieldset >
+        <form method="post" action="../Controller/LoginCheck.php" enctype="">
+            <div class="c1">
+
+                <div>
+                    <h3>Login</h3>
+                </div>
+                
+                <div class="input-box">
+                    <input type="text" id="username" name="username" placeholder="Username" onkeyup="usernameValidate()" />
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="password" name="password" placeholder="Password" onkeyup="passwordValidate()"/>
+                </div>
+
+                <div >
+                    <a href="ForgotPassword">Forgot Password</a>
+                </div>
+
+                <div >
+                    <input type="submit" class="submit" name="submit" value="Submit" />
+                </div>
+                <p></p>
+                <div class="register-link">
+                    <p>Don't have an account? <a href="Registration.php">Register</a></p>
+                  
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <script src="../Assets/login.js"></script>  
+</body>
+</html>

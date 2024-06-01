@@ -27,7 +27,7 @@ $transport = getTransport($transportId);
     
     <h4 id="b10">Find your next stay</h4>
    
-    <a id="b11" href="History.php">Next</a>
+    <a id="b11" href="TransportCustomer.php">Back</a>
 </fieldset>
 
    

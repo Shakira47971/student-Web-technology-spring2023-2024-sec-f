@@ -24,7 +24,7 @@ $_SESSION['packages'] = $packages;
     <h3 id="b1"><u>Click & Stay</u></h3>
     <h4 id="b10">Find your next stay</h4>
     <a id="b4" href="PackageAdmin.php">Back</a>
-    <a id="b11" href="logOut.php">Log Out</a>
+    <a id="b11" href="AdminHome.php">Home</a>
 </fieldset>
 
 <div class="package-container">

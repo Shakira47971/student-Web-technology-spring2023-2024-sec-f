@@ -22,7 +22,7 @@ $packageId = isset($_REQUEST['packageId']) ? $_REQUEST['packageId'] : '';
     
     <h4 id="b10">Find your next stay</h4>
    
-    <a id="b11" href="payment.php">Next</a>
+    <a id="b11" href="home.php">home</a>
 </fieldset>
 
 <form method="post" action="logOut.php" enctype="">         
