@@ -1,5 +1,5 @@
 <?php
-require_once('BookingCustomerDb.php');
+require_once('db.php');
 function booking($user){
   $conn = dbconnection();
   $sql = "INSERT INTO bookings VALUES ('{$user['guestId']}', '{$user['capacity']}', '{$user['roomNumber']}', '{$user['roomType']}', '{$user['price']}', '{$user['checkinDate']}', '{$user['checkoutDate']}')";
@@ -11,17 +11,6 @@ function booking($user){
   }
 }
 
-function updateGuestPic($GuestId, $target_file) {
-
-  $con = dbConnection();
-  $sql = "UPDATE bookings SET proPic = '$target_file' WHERE guestId = '$GuestId'";
-
-  if (mysqli_query($con, $sql)) {
-      return true;
-  } else {
-      return false;
-  }
-}
 
 function uniId($GuestId) {
     $conn = dbConnection();

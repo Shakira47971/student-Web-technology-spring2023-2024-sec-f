@@ -1,8 +1,8 @@
 <?php
 require_once('db.php');
-function fAdd($user){
+function eAdd($user){
     $conn=dbconnection();
-    $sql="INSERT INTO facilityadmin VALUES  ('{$user['facilityId']}','{$user['facilityName']}','{$user['facilityDescription']}','{$user['facilityCatagory']}','{$user['Fprice']}','{$user['proPic']}')";
+    $sql="INSERT INTO eventadmin VALUES  ('{$user['eventId']}','{$user['eventName']}','{$user['eventCapacity']}','{$user['eventFood']}','{$user['eventPrice']}','{$user['eventPic']}')";
     
     if (mysqli_query($conn, $sql)) {
         return true;
@@ -11,23 +11,23 @@ function fAdd($user){
     }
    
 }
-function getFacility($facilityId){ 
+function getevent($eventId){ 
 
   $con = dbConnection();
-  $sql = "SELECT * FROM facilityadmin WHERE facilityId='$facilityId' ";
+  $sql = "SELECT * FROM eventadmin WHERE eventId='$eventId' ";
   $result = mysqli_query($con, $sql);
-$facility = [];
+$event = [];
 
 while($row = mysqli_fetch_assoc($result)){
-  array_push($facility, $row);
+  array_push($event, $row);
 }
-return $facility;
+return $event;
 
 }
 
-function funiId($facilityId) {
+function euniId($eventId) {
     $conn = dbConnection();
-    $sql = "SELECT COUNT(*) FROM facilityadmin WHERE facilityId = '$facilityId'";
+    $sql = "SELECT COUNT(*) FROM eventadmin WHERE eventId = '$eventId'";
     $result = mysqli_query($conn, $sql);
   
     if (!$result) {
@@ -41,9 +41,9 @@ function funiId($facilityId) {
       }
     }
   }
-  function uniFacility($facilityName) {
+  function unievent($eventName) {
     $conn = dbConnection();
-    $sql = "SELECT COUNT(*) FROM facilityadmin WHERE facilityName = '$facilityName'";
+    $sql = "SELECT COUNT(*) FROM eventadmin WHERE eventName = '$eventName'";
     $result = mysqli_query($conn, $sql);
   
     if (!$result) {
@@ -61,23 +61,23 @@ function funiId($facilityId) {
   
 
 
-function viewFacility(){
+function viewevent(){
 
     $con = dbConnection();
-    $sql = "select * from facilityadmin";
+    $sql = "select * from eventadmin";
     $result = mysqli_query($con, $sql);
-    $facility = [];
+    $event = [];
     
     while($row = mysqli_fetch_assoc($result)){
-        array_push($facility, $row);
+        array_push($event, $row);
     }
-return $facility;
+return $event;
 }
-function fDelete($facilityId){
+function eDelete($eventId){
     
     $conn = dbconnection();
 
-    $sql = "DELETE FROM facilityadmin WHERE facilityId='$facilityId'";
+    $sql = "DELETE FROM eventadmin WHERE eventId='$eventId'";
 
     
         if (mysqli_query($conn, $sql)) {
@@ -87,12 +87,12 @@ function fDelete($facilityId){
         return false;
     }
 }
-function fEdit($facilityId,$facilityName,$facilityDescription,$Catagory,$price,$target_file){
+function eEdit($eventId,$eventName,$eventCapacity,$eventFood,$eventPrice,$target_file){
     
     $conn = dbconnection();
 
         
-    $sql = "UPDATE facilityadmin SET facilityName='$facilityName',facilityDescription='$facilityDescription', facilityCatagory='$Catagory',Fprice='$price', proPic='$target_file' WHERE facilityId='$facilityId' ";
+    $sql = "UPDATE eventadmin SET eventName='$eventName',eventCapacity='$eventCapacity', eventFood='$eventFood',eventPrice='$eventPrice', eventPic='$target_file' WHERE eventId='$eventId' ";
        
     if (mysqli_query($conn, $sql)) {
       
@@ -101,16 +101,16 @@ function fEdit($facilityId,$facilityName,$facilityDescription,$Catagory,$price,$
         return false;
     }
 }
-function facilityEdit($facilityId){
+function eventEdit($eventId){
   $con = dbConnection();
-  $sql = "SELECT * FROM facilityadmin WHERE facilityId='$facilityId' ";
+  $sql = "SELECT * FROM eventadmin WHERE eventId='$eventId' ";
   $result = mysqli_query($con, $sql);
-  $facility= [];
+  $event= [];
 
   while($row = mysqli_fetch_assoc($result)){
-      array_push($facility, $row);
+      array_push($event, $row);
   }
 
-  return $facility;
+  return $event;
 }
 ?>

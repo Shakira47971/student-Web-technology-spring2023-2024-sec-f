@@ -1,7 +1,7 @@
 <?php
 require_once('db.php');
 
-function Add($user){
+function CAdd($user){
     $conn = dbconnection();
     $sql = "INSERT INTO crudAdmin VALUES ('{$user['roomId']}', '{$user['roomType']}', '{$user['roomNumber']}', '{$user['capacity']}','{$user['price']}','{$user['checkinDate']}','{$user['checkoutDate']}','{$user['roomStatus']}', '{$user['proPic']}')";
     
@@ -12,7 +12,7 @@ function Add($user){
     }
 }
 
-function uniId($roomId) {
+function CuniId($roomId) {
     $conn = dbConnection();
     $sql = "SELECT COUNT(*) FROM crudadmin WHERE roomId = '$roomId'";
     $result = mysqli_query($conn, $sql);
@@ -59,7 +59,7 @@ function viewRoom(){
     return $room;
 }
 
-function Delete($roomId){
+function CDelete($roomId){
     $conn = dbconnection();
     $sql = "DELETE FROM crudadmin WHERE roomId='$roomId'";
     
@@ -70,7 +70,7 @@ function Delete($roomId){
     }
 }
 
-function Edit($roomId, $roomType, $roomNumber, $capacity, $price, $checkinDate, $checkoutDate,  $target_file){
+function CEdit($roomId, $roomType, $roomNumber, $capacity, $price, $checkinDate, $checkoutDate,  $target_file){
     $conn = dbconnection();
    
     $sql = "UPDATE crudadmin SET roomType='$roomType', roomNumber='$roomNumber', capacity='$capacity', price='$price', checkinDate='$checkinDate', checkoutDate='$checkoutDate',  proPic='$target_file' WHERE roomId='$roomId'";

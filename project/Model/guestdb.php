@@ -115,7 +115,7 @@
         }
 
     }
-    function uniId($gid) {
+    function uniGId($gid) {
         $conn=dbconnection();
         $sql = "SELECT COUNT(*) FROM guest WHERE gid = '$gid'";
         $result = mysqli_query($conn, $sql);
