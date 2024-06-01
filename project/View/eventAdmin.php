@@ -7,7 +7,7 @@ if(!isset($_COOKIE['flag'])){
 <html >
 <head>
     
-    <title>Facility Management</title>
+    <title>event Management</title>
     <link rel="stylesheet" href="../Assets/Admin.css"/>
 </head>
 <body id="b8">
@@ -19,7 +19,7 @@ if(!isset($_COOKIE['flag'])){
     <h4 id="b10">Find your next stay</h4>
   
   
-                <a id="b11" href="FacilityView.php">See All Facilities</a>
+                <a id="b11" href="eventView.php">See All Event</a>
                 
                 
                 <a id="b4" href="AdminHome.php">Home</a></div></b>
@@ -27,43 +27,36 @@ if(!isset($_COOKIE['flag'])){
 </fieldset>
 
 <h3></h3>
-<form method="post" action="../Controller/FacilityAddCheck.php"enctype="multipart/form-data" >
+<form method="post" action="../Controller/eventAddCheck.php"enctype="multipart/form-data" >
     <table align="center" class="c1">
         <tr class="c1">
-            <td>Facility Id:</td>
-            <td><input type="number" name="facilityId" id="facilityId" onkeyup="validatefacilityId()"></td>
+            <td>event Id:</td>
+            <td><input type="number" name="eventId" id="eventId" onkeyup="validateeventId()"></td>
            
         </tr>
         <tr class="c1">
-            <td>Facility Name:</td>
+            <td>event Name:</td>
             <td>
                 <div style="padding: 3px;">
-                    <input type="text" name="facilityName" id="facilityName" onkeyup="validateFacilityName()">
+                    <input type="text" name="eventName" id="eventName" onkeyup="validateeventName()">
                 </div>
             </td>
             
         </tr>
         <tr class="c1">
-            <td>Facility Description:</td>
+            <td>Capacity:</td>
             <td>
-                <div style="padding: 3px;">
-                    <textarea name="facilityDescription" rows="4" cols="50" id="facilityDescription" onkeyup="validateFacilityDescription()"></textarea>
-                </div>
+            <div style="padding: 3px;">
+                                <input type="number" name="eventCapacity" id="eventCapacity" onkeyup="validateCapacity()"/>
+                            </div>
             </td>
            
         </tr>
         <tr class="c1">
-            <td>Facility Category:</td>
+            <td>Food:</td>
             <td>
                 <div style="padding: 3px;">
-                    <select name="facilityCatagory" id="facilityCatagory" onchange="validateFacilityCategory()">
-                        <option value="">Select</option>
-                        <option value="Accommodation">Accommodation</option>
-                        <option value="Recreation">Recreation</option>
-                        <option value="Dining">Dining</option>
-                        <option value="Business">Business</option>
-                        <option value="Others">Others</option>
-                    </select>
+                    <textarea name="eventFood" rows="4" cols="50" id="eventFood" onkeyup="validateFood()"></textarea>
                 </div>
             </td>
         </tr>
@@ -71,7 +64,7 @@ if(!isset($_COOKIE['flag'])){
                         <td>Price :</td>
                         <td>
                             <div style="padding: 3px;">
-                                <input type="number" name="Fprice" id="Fprice" onkeyup="validatePrice()"/>
+                                <input type="number" name="eventPrice" id="eventPrice" onkeyup="validatePrice()"/>
                             </div>
                         </td>
                      
@@ -80,7 +73,7 @@ if(!isset($_COOKIE['flag'])){
     <td>Picture:</td>    
     <td>
         <div style="padding: 3px;">
-            <input type="file" id="proPic" name="proPic" accept="image/*" onchange="validateFilename()" />
+            <input type="file" id="eventPic" name="eventPic" accept="image/*" onchange="validateFilename()" />
         </div>
         
     </td>
@@ -99,27 +92,27 @@ if(!isset($_COOKIE['flag'])){
     </form>
 
 <script>
-    function validateFacilityName() {
-    let facilityName = document.getElementById('facilityName').value;
+    function validateeventName() {
+    let eventName = document.getElementById('eventName').value;
     let obj = document.getElementsByTagName('h3')[1];
-    if (facilityName === "") {
+    if (eventName === "") {
         obj.innerHTML = "Name cannot be empty";
         obj.style.color = 'red';
         return false;
     } 
-    if (facilityName.length < 2 || facilityName.length > 20) {
-        obj.innerHTML = "Facility Name must be 2 to 20 characters long";
+    if (eventName.length < 5 || eventName.length > 20) {
+        obj.innerHTML = "event Name must be 5 to 20 characters long";
         obj.style.color = 'red';
         return false;
     } else{
     let xhttp = new XMLHttpRequest();
-      xhttp.open('POST', '../Controller/FacilityAddCheck.php', true);
+      xhttp.open('POST', '../Controller/eventAddCheck.php', true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhttp.onreadystatechange = function() {
           if (xhttp.readyState === 4 && xhttp.status === 200) {
             const response = JSON.parse(xhttp.responseText);   
-            if (response.facilityName === "valid") {
+            if (response.eventName === "valid") {
               obj.innerHTML = "Name Valid";
               obj.style.color = 'black';
               return true;
@@ -131,34 +124,34 @@ if(!isset($_COOKIE['flag'])){
           }
         };
      
-        xhttp.send('facilityName='+facilityName);
+        xhttp.send('eventName='+eventName);
       }
 
   }
   
 
-    function validatefacilityId() {
-    let facilityId = document.getElementById('facilityId').value;
+    function validateeventId() {
+    let eventId = document.getElementById('eventId').value;
     let obj = document.getElementsByTagName('h3')[1];
-    if (facilityId === "") {
+    if (eventId === "") {
         obj.innerHTML = "Id cannot be empty";
         obj.style.color = 'red';
         return false;
     } 
-    if (facilityId.length !== 3 || parseInt(facilityId) <= 0) {
-        obj.innerHTML = "Facility Id must be 3 digits long and greater than 0";
+    if (eventId.length !== 2 || parseInt(eventId) <= 0) {
+        obj.innerHTML = "event Id must be 2 digits long and greater than 0";
         obj.style.color = 'red';
         return false;
     }
     else{
     let xhttp = new XMLHttpRequest();
-      xhttp.open('POST', '../Controller/FacilityAddCheck.php', true);
+      xhttp.open('POST', '../Controller/eventAddCheck.php', true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhttp.onreadystatechange = function() {
           if (xhttp.readyState === 4 && xhttp.status === 200) {
             const response = JSON.parse(xhttp.responseText);   
-            if (response.facilityId === "valid") {
+            if (response.eventId === "valid") {
               obj.innerHTML = "Id Valid";
               obj.style.color = 'black';
               return true;
@@ -170,57 +163,62 @@ if(!isset($_COOKIE['flag'])){
           }
         };
      
-        xhttp.send('facilityId='+facilityId);
+        xhttp.send('eventId='+eventId);
       }
 
   }
   
 
-function validateFacilityDescription() {
-    let facilityDescription = document.getElementById('facilityDescription').value;
-    let obj = document.getElementsByTagName('h3')[1];
-    if (facilityDescription === "") {
-        obj.innerHTML = "Description cannot be empty";
+
+  function validateCapacity() {
+    let eventCapacity = document.getElementById('eventCapacity').value;
+    let obj = document.getElementById('validationMessage'); 
+    if (eventCapacity === "") {
+        obj.innerHTML = "Capacity cannot be empty";
         obj.style.color = 'red';
         return false;
     } 
-    if (facilityDescription.length < 5 || facilityDescription.length > 30) {
-        obj.innerHTML = "Facility Description must be 5 to 29 characters long";
+    if (!Number.isInteger(Number(eventCapacity)) || eventCapacity <= 0 || eventCapacity >= 250) {
+        obj.innerHTML = "Capacity must be a positive integer between 1 and 249";
+        obj.style.color = 'red';
+        return false;
+    } else {
+        obj.innerHTML = "Valid eventCapacity";
+        obj.style.color = 'black';
+        return true;
+    }
+}
+    function validateFood() {
+        let eventFood = document.getElementById('eventFood').value;
+    let obj = document.getElementsByTagName('h3')[1];
+    if (eventFood === "") {
+        obj.innerHTML = " Food Description cannot be empty";
+        obj.style.color = 'red';
+        return false;
+    } 
+    if (eventFood.length < 5 || eventFood.length > 200) {
+        obj.innerHTML = "Food Description must be 5 to 199 characters long";
         obj.style.color = 'red';
         return false;
     }
     else {
-        obj.innerHTML = "Valid Description";
+        obj.innerHTML = "Valid Food Description";
         obj.style.color = 'black';
         return true;
     }
 
 }
 
-    function validateFacilityCategory() {
-        let facilityCategory = document.getElementById('facilityCatagory').value;
-        let obj = document.getElementsByTagName('h3')[1];
-
-        if (facilityCategory === "") {
-            obj.innerHTML = "Please select a facility category.";
-            obj.style.color = 'red';
-            return false;
-        } else {
-            obj.innerHTML = "Selected facility category: " + facilityCategory;
-            obj.style.color = 'black';
-            return true;
-        }
-    }
     function validatePrice() {
-    let price = document.getElementById('Fprice').value;
+    let price = document.getElementById('eventPrice').value;
     let obj = document.getElementsByTagName('h3')[1];
     if (price === "") {
         obj.innerHTML = "price cannot be empty";
         obj.style.color = 'red';
         return false;
     } 
-    if (price <= 0 || price >= 500) {
-        obj.innerHTML = "Price must be greater than 0 and at least 500";
+    if (price <= 0 || price >= 500000) {
+        obj.innerHTML = "Price must be greater than 0 and at least 5 lac";
         obj.style.color = 'red';
     } else {
         obj.innerHTML = "Valid Price";
@@ -229,7 +227,7 @@ function validateFacilityDescription() {
     }
 }
 function validateFilename() {
-    let fileInput = document.getElementById('proPic');
+    let fileInput = document.getElementById('eventPic');
     let obj = document.getElementsByTagName('h3')[1];
 
 

@@ -9,34 +9,19 @@ $name=$_REQUEST['username'];
 <html>
     <head>
         <title>Update View</title>
-        <link rel="stylesheet" href="AdminStyle.css"/>
+        <link rel="stylesheet" href="../Assets/Admin.css"/>
     </head>
-<body>
-<table border="1" cellspacing="0" width="750">
+<body id="b8">
+        <fieldset id="b9">
+<img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click & Stay</u></h3>
+    
+    <h4 id="b10">Find your next stay</h4>
+    <a id="b11" href="Update.php">Back</a>
+</fieldset>
 
-        <tr>
-            <td colspan=2><table><tr><td width="334">Click & Stay</td><td align=right>  Logged in as Admin
-</td></tr></table></td>
-        </tr>
-
-        <tr  style="height:200;">
-            <td align="Left" style="width:200">
-        <b>Account</b><hr>
- 
-                    <span align="left">
-                        <ul>
-                            <li><a href="AdminHome.php">Home</a></li>
-                            <li><a href="Update.php">Update Id</a></li>
-                        </ul>
-</span>
-     
-                </td><td align=top width="400"><span align=top>
-                <p></p>
-                <form method="post" action="../Controller/updateCheck.php" enctype="">
-                    <fieldset width="200">
-                        <legend>Guest</legend>
-                        <table>
-                           
+                        <table align="center" class="c1">
+             <tr><td colspan="2">   <p></p>     </td></tr>      
                            
                 
                 <tr>
@@ -44,7 +29,7 @@ $name=$_REQUEST['username'];
 </tr>
 <tr><td>ID</td>     <td>:<input type="text" id="gid" name="gid" value="" onkeyup="IdCheck()"></td>
 </tr>
-               <tr><td> <input type="submit" name="Submit" value="Update"/></td></tr>
+               <tr><td> <input type="submit" id="b7" name="Submit" value="Update"/></td></tr>
 
 
 </table>

@@ -100,14 +100,11 @@ $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : '';
                 
 
             <tr class="c1">
-    <td>Room Pic:</td><td>
-    <input type="file" name="proPic" accept="image/*" id="proPic"value="<?php echo $RoomEdit[$i]['proPic']; ?>" onchange="validateFilename()"  /></td>
-
-             
+    <td>Room Pic:</td>
+    <td>
+    <input type="file" name="proPic" accept="image/*" id="proPic" onchange="validateFilename()"  /></td>  
            
-                <img src="<?php echo $RoomEdit[$i]['proPic']; ?>" alt="Room Picture" class="room-pic-img">
-           
-       
+                <img src="<?php echo $RoomEdit[$i]['proPic']; ?>" alt="Room Picture" class="room-pic-img">  
     
 </tr>
              

@@ -26,9 +26,8 @@ $schedule=$_REQUEST['sid'];
                         <table align="center">
                 <tr class="c3">
                 <td>Schedule ID </td>    <td> :<input type="text" name="sid" value="<?php echo $schedule ?>"></td>  
-</tr><tr><input type="submit" name="Submit" id="b7" value="Delete"/>
 </tr>
-               <tr><td> </td></tr>
+               <tr><td> <input type="submit" name="Submit" id="b7" value="Delete"/></td></tr>
 
                </form>
 

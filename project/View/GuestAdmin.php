@@ -13,34 +13,19 @@ $name=getAllGuest();
 <html>
     <head>
         <title>Profile</title>
-        <link rel="stylesheet" href="AdminStyle.css"/>
+        <link rel="stylesheet" href="../Assets/Admin.css"/>
     </head>
-<body class="b1">
-<table border="1" cellspacing="0" width="750" id="b2">
-
-        <tr>
-            <td colspan=2><table><tr><td width="334">Click & Stay</td><td align=right>  Logged in as Admin
-</td></tr></table></td>
-        </tr>
-
-        <tr  style="height:200;" id="b5">
-            <td align="Left" style="width:200">
-        <b>Dashboard</b><hr>
- 
-                    <span align="left">
-                        <ul>
-                            <li><a href="AdminHome.php">Home</a></li>
-                            <li><a href="GuestAdmin.php">View Guest</a></li>
-                            <li><a href="Update.php">Update Id</a></li>
-                            <li><a href="Delete.php">Delete Guest</a></li>
-                        </ul>
-</span>
-     
-                </td><td align=top width="400"><span align=top>
-                    <fieldset width="200">
-                        <legend>Guest</legend>
-                        <table border=1; cellspacing='0'>
-                            <tr>
+<body id="b8">
+        <fieldset id="b9">
+<img src="../Assets/logo.png" id="logo-image">
+    <h3 id="b1"><u>Click & Stay</u></h3>
+    
+    <h4 id="b10">Find your next stay</h4>
+    <a id="b11" href="Update.php">Update</a>
+    <a id="b4" href="AdminHome.php">home</a>
+</fieldset>
+                        <table align="center" class="c4">
+                            <tr class="c3">
                            
                 <td>ID</td>
                 <td>NAME</td>
@@ -49,6 +34,7 @@ $name=getAllGuest();
                 <td>PICTURE</td>
                 <td>GENDER</td>
                 <td>DOB</td>
+                <td>Action</td>
             </tr><?php for($i=0; $i<count($name); $i++){?>
                             <tr>
                             <td> <?php echo $name[$i]['gid']; ?></td>  
@@ -58,6 +44,7 @@ $name=getAllGuest();
                             <td> <img src="<?php echo $name[$i]['proPic']?>"width="90" height="60"></td>  
                             <td> <?php echo $name[$i]['gender']; ?></td>  
                             <td> <?php echo $name[$i]['dd']; ?>/<?php echo $name[$i]['mm']; ?>/<?php echo $name[$i]['yyyy']; ?></td>  
+                                     <td><b> <a  href="deleteView.php?username=<?=$name[$i]['username']?>">Delete </a> </b></td>
                         </tr>
                         <?php } ?>
         </table>

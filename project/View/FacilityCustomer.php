@@ -21,7 +21,6 @@ $_SESSION['facility'] = $facility;
     <h3 id="b1"><u>Click&Stay</u></h3>
     <h4 id="b10">Find your next stay</h4>
     <a id="b4" href="home.php">home</a>
-    <a id="b11" href="PackageViewCustomer.php">Next</a>
 </fieldset>
 <div class="facility-container">
 <?php for($i=0; $i<count($facility); $i++){?>

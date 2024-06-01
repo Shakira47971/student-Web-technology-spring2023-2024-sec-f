@@ -17,36 +17,28 @@ $name=name($user);
 <html>
     <head>
         <title>Change Password</title>
-        <link rel="stylesheet" href="GuestStyle.css"/>
+        <title>Profile</title>
+        <link rel="stylesheet" href="../Assets/customerStyle.css"/>
     </head>
 <body class="b1">
-<table border="1" cellspacing="0" width="650" id="b2">
-<?php for($i=0; $i<count($name); $i++){?>
-        <tr>
-            <td colspan=2><table><tr><td width="474">Click & Stay</td><td align=right>  Logged in as<a  class="c1" href="<?php echo $name[$i]['name']; ?>"><?php echo $name[$i]['name']; ?></a>
-</td></tr></table></td>
-        </tr>
+<fieldset id="b9">
+    <img src="../Assets/logo.png" id="logo-image">
+        <h3 id="b1"><u>Click & Stay</u></h3>
+        
+        <h4 id="b10">Find your next stay</h4>
+        <?php for($i=0; $i<count($name); $i++){?>
 
-        <tr  style="height:200;">
-            <td align="Left" style="width:250" id="b5">
-        <b>Dashboard</b><hr>
- 
-                    <span align="left">
-                        <ul>
-                        <li><a class="c1" href="home.php">Home</a></li>
-                            <li><a  class="c1" href="Profile.php">View Profile</a></li>
-                            <li><a  class="c1"   href="EditProfile.php">Edit Profile</a></li>
-                            <li><a  class="c1" href="profilePicture.php">Change Profile Picture</a></li>
-                            <li><a  class="c1" href="ChangePassword.php">Change Password</a></li>
-                        </ul>
-</span>
-     
-                </td><td align=top><span align=top>
-                <p></p>
+<p id="b11" ><?php echo $name[$i]['name']; ?></p>
+<?php } ?>
+<a id="b4" href="Profile.php">Back</a>
+        
+    </fieldset>
+    <?php for($i=0; $i<count($name); $i++){?>
+               
                 <form method="post" action="../Controller/ChangepassCheck.php" enctype="">
-                    <fieldset>
-                        <legend>CHANGE PASSWORD</legend>
-                        <table>
+                  
+                        <table align="center" class="c1">
+                        <p align="center"></p>
                             <tr>
                        <td align=left> Current Password </td>   <td align=right> :<input type="password" id="currentPassword" name="cpassword" value="" onkeyup="validatePassword()"/></td>
 </tr>
@@ -55,22 +47,23 @@ $name=name($user);
 </tr>
 <tr>
                        <td align=left> Re-Type Password </td>   <td align=right> :<input type="password" id="confirmPassword" name="rpassword" value="" onkeyup="validatePassword()"/></td>
-</tr></table>
-                        <hr>
-                        <input type="submit" name="btn" value="update"/>
-                    </fieldset>
+</tr><tr><td>
+                        <input type="submit" id="b7" name="btn" value="update"/></td></tr>
+</table>
+                       
+                  
 </form>
 </td>
                 </tr>
                 <tr>
-                    <td colspan=2 align=center>Copyright © 2017
+                 
 </td>
 </tr>
 <?php } ?>
                 </table>
                 <script>
     function validatePassword() {
-      let obj = document.getElementsByTagName('p')[0];
+      let obj = document.getElementsByTagName('p')[1];
       obj.innerHTML = "";
       obj.style.color = '';
 

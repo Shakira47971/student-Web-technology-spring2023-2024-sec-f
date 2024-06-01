@@ -15,10 +15,10 @@
       
 </fieldset>
 
-        <fieldset>
+      
         <form method="post" action="../Controller/RegCheck.php" enctype="">
 
-            <div class="c1">
+            <div align="center" class="c1">
 
                 <div>
                     <h3>
@@ -49,7 +49,7 @@
                   <input type="text" id="mm" size="2px" name="mm" value=""placeholder="mm"  onkeyup="dob()" > 
                    <input type="text" id="yyyy" size="4px" name="yyyy" value="" placeholder="yyyy" onkeyup="dob()" > 
                 </div>
-                <div class="input-box gender-options">Gender: 
+                <div class="input-box gender-options">
                 Male  <label>
      <input type="radio" id="male" name="gender" value="Male" onclick="genderValidate()" >
     </label>
@@ -62,9 +62,9 @@
 </div>
        
                   <div>
-                    <input type="submit" name="submit" class="submit" value="Register Now" onclick="registration()"/>
+                    <input type="submit" name="submit" class="submit" id="b7" value="Register Now" onclick="registration()"/>
                 </div>
-
+<br><br><br>
                 <div class="login-link">
                     <p>Already have an Account? <a href="Login.php" id="a">Login</a></p>
                 </div>
@@ -74,7 +74,7 @@
 
             </div>
         
-        </fieldset>
+
     
     
     

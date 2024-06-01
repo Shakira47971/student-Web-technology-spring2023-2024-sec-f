@@ -37,9 +37,10 @@
                 <div >
                     <input type="submit" class="submit" name="submit" value="Submit" />
                 </div>
-                
+                <p></p>
                 <div class="register-link">
                     <p>Don't have an account? <a href="Registration.php">Register</a></p>
+                  
                 </div>
             </div>
         </fieldset>

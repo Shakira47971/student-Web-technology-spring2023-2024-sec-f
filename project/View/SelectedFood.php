@@ -1,8 +1,8 @@
 <?php
-require_once('../Model/facilityadmin.php');
+require_once('../Model/foodadmin.php');
 
-$facilityId = isset($_REQUEST['facilityId']) ? $_REQUEST['facilityId'] : '';
-    $facility = getfacility($facilityId);
+$foodId = isset($_REQUEST['foodId']) ? $_REQUEST['foodId'] : '';
+    $food = getfood($foodId);
     if(!isset($_COOKIE['flag'])){
         header('location: login.php');
     }
@@ -21,8 +21,8 @@ $facilityId = isset($_REQUEST['facilityId']) ? $_REQUEST['facilityId'] : '';
     <h3 id="b1"><u>Click&Stay</u></h3>
     
     <h4 id="b10">Find your next stay</h4>
-    <a id="b4" href="FacilityCustomer.php">Back</a>
-    <a id="b11" href="home.php">home</a>
+   
+    <a id="b11" href="FoodCustomer.php">Back</a>
 </fieldset>
 
 <form method="post" action="PackageViewCustomer.php" enctype="">         
@@ -30,14 +30,14 @@ $facilityId = isset($_REQUEST['facilityId']) ? $_REQUEST['facilityId'] : '';
  
     
     <div class="facility-container">
-<?php for($i=0; $i<count($facility); $i++){?>
+<?php for($i=0; $i<count($food); $i++){?>
 <div class="facility-item"style="text-align: left;">
-<img src="<?php echo $facility[$i]['proPic'] ?>"  id="facility-picture"><br>
-            Facility Id:<?php echo $facility[$i]['facilityId']; ?><br>
-                Name:<?php echo $facility[$i]['facilityName']; ?><br>
-                 <?=$facility[$i]['facilityDescription'] ?><br>
-                Catagory:<?php echo $facility[$i]['facilityCatagory']; ?><br>
-                Price:<?php echo $facility[$i]['Fprice']; ?> tk<br>
+<img src="<?php echo $food[$i]['proPic'] ?>"  id="facility-picture"><br>
+            food Id:<?php echo $food[$i]['foodId']; ?><br>
+               
+                 <?=$food[$i]['foodDescription'] ?><br>
+              
+                Price:<?php echo $food[$i]['price']; ?> tk<br>
                
                
             
